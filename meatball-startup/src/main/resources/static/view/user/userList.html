@@ -1,0 +1,29 @@
+<h3>用户列表</h3>
+<!-- ngRepeat + ngResource-->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div style="width: 188px;float: right; margin-bottom: 10px;">
+            <input style=" text-indent: 5px;border: 1px solid #cccccc;border-right: none;float: left" type="text" ng-model="searchForm.data.name" placeholder="请按用户名查询" />
+            <button style="height: 25px;float: left"  class="fa fa-search" ng-click="search()"></button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ac-table>
+            <ac-table-column header="ID" field="id" sortable="true"></ac-table-column>
+            <ac-table-column header="用户名" field="name" sortable="true"></ac-table-column>
+            <!--<ac-table-column header="密码" field="pwd" sortable="true"></ac-table-column>-->
+            <ac-table-column header="手机号" field="phone" sortable="true"></ac-table-column>
+            <ac-table-column header="姓名" field="realname" sortable="true"></ac-table-column>
+            <!--<ac-table-column header="添加时间" field="addtime" sortable="true"></ac-table-column>-->
+            <ac-table-column header="状态" field="statusval" sortable="true"></ac-table-column>
+            <ac-table-column header="角色" field="role_name" sortable="true"></ac-table-column>
+            <ac-table-column header="公司" field="enterprise_id" sortable="true"></ac-table-column>
+
+            <ac-table-column-os content="详细" os="show" header="详细"></ac-table-column-os>
+             <ac-table-column-op content="<i class='fa fa-pencil'></i>" op="edit" tooltip="编辑"></ac-table-column-op>
+            <ac-table-column-op content="<i class='fa fa-trash'></i>" op="del" tooltip="删除"></ac-table-column-op>
+            <ac-table-grid items="data" selectable="false" multiple="false" id-field="id" selected-items="selectedItems" paging="pagination" on-sort-change="search()" lineclick="show"></ac-table-grid>
+        </ac-table>
+        <pagination-tow total-items="data.extlimit.count" paging="pagination" ng-model="pagination.pageindex" on-page-change="pageChanged()"></pagination-tow>
+    </div>
+</div>
