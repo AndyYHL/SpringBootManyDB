@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.write.UserInfoWriteDao">
+
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+		INSERT INTO user_info(
+		  `name`,
+		  pwd,
+		  phone,
+		  realname,
+		  uuid,
+		  prison_id
+		)
+		VALUES
+		(
+			#{data.name},
+			#{data.pwd},
+			#{data.phone},
+			#{data.realname},
+			#{data.uuid},
+			#{data.prison_id}
+		)
+	</insert>
+
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO user_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.name != null">`name`,</if>
+			<if test="data.pwd != null">`pwd`,</if>
+			<if test="data.phone != null">`phone`,</if>
+			<if test="data.realname != null">`realname`,</if>
+			<if test="data.uuid != null">`uuid`,</if>
+			<if test="data.prison_id != null">`prison_id`,</if>
+			<if test="data.role_id != null">`role_id`,</if>
+			<if test="data.role_name != null">`role_name`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.name != null">#{data.name},</if>
+			<if test="data.pwd != null">#{data.pwd},</if>
+			<if test="data.phone != null">#{data.phone},</if>
+			<if test="data.realname != null">#{data.realname},</if>
+			<if test="data.uuid != null">#{data.uuid},</if>
+			<if test="data.prison_id != null">#{data.prison_id},</if>
+			<if test="data.role_id != null">#{data.role_id},</if>
+			<if test="data.role_name != null">#{data.role_name},</if>
+		</trim>
+	</insert>
+
+	<update id="upt" parameterType="map">
+		UPDATE user_info
+		<set>
+			<if test="data.name != null">name = #{data.name},</if>
+			<if test="data.pwd != null">pwd = #{data.pwd},</if>
+			<if test="data.phone != null">phone = #{data.phone},</if>
+			<if test="data.realname != null">realname = #{data.realname},</if>
+			<if test="data.isdelete != null">isdelete = #{data.isdelete},</if>
+			<if test="data.status != null">status = #{data.status},</if>
+			<if test="data.statusval != null">statusval = #{data.statusval},</if>
+			<if test="data.role_id != null">role_id = #{data.role_id},</if>
+			<if test="data.role_name != null">role_name = #{data.role_name},</if>
+			<if test="data.prison_id != null">prison_id = #{data.prison_id},</if>
+			<if test="data.loginip != null">loginip = #{data.loginip},</if>
+		</set> WHERE id = #{data.id}
+	</update>
+
+	<delete id="del" parameterType="map">DELETE FROM user_info WHERE id = #{data.id}</delete>
+</mapper>

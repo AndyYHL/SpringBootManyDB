@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="meatball-startup:war">
+    <output-path>$PROJECT_DIR$/meatball-startup/target</output-path>
+    <root id="archive" name="meatballstartup-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="meatball-startup:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,110 @@
+server:
+  port: 80 #配置端口号
+  #port: 12580
+secret:
+  key: Jeisr^l,?>0  #token验证密钥
+  issuer: meatball  #JWT的签发者，是否使用是可选的
+  subject: all #JWT所面向的用户，是否使用是可选的
+  ttlMillis: -1 #失效时间
+
+# 注册为服务提供者
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+
+#配置Actuator监控
+management:
+    security:
+      enabled: false #设置关闭安全限制
+    port: 12581 #指定访问端口
+    #address: 127.0.0.1  #指定能够访问的IP
+spring:
+  debug: true
+#  application:
+#    name: meatball-system
+#  devtools: #配置热启动模式
+#    restart:
+#      enabled: true #热部署生效
+#      additional-paths: src/main/java  #设置重启的目录
+#      exclude: /static/**,/templates/**  #classpath文件夹内容修改不重启
+  thymeleaf: #配置模板引擎
+    prefix: classpath:/templates/  #配置模版路径，这是默认地址，可以省略
+    mode: LEGACYHTML5   #定义不严格检查HTML标签
+    cache: false  #禁用缓存，开发适用
+  datasource:
+    first:
+      url: jdbc:mysql://172.16.2.153:3306/exuanbao?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: root
+      type: com.alibaba.druid.pool.DruidDataSource  #使用druid数据源
+      driver-class-name: com.mysql.jdbc.Driver
+    second:
+      url: jdbc:mysql://172.16.2.153:3306/exuanbao?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: root
+      type: com.alibaba.druid.pool.DruidDataSource  #使用druid数据源
+      driver-class-name: com.mysql.jdbc.Driver
+    main:
+      url: jdbc:mysql://172.16.2.153:3306/exuanbao?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: root
+      type: com.alibaba.druid.pool.DruidDataSource  #使用druid数据源
+      driver-class-name: com.mysql.jdbc.Driver
+  # 下面为连接池的补充设置，应用到上面所有数据源中
+  # 初始化大小，最小，最大
+  initialSize: 5
+  minIdle: 5
+  maxActive: 20
+  # 配置获取连接等待超时的时间
+  maxWait: 60000
+  # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+  timeBetweenEvictionRunsMillis: 60000
+  # 配置一个连接在池中最小生存的时间，单位是毫秒
+  minEvictableIdleTimeMillis: 300000
+  validationQuery: SELECT 1 FROM DUAL
+  testWhileIdle: true
+  testOnBorrow: false
+  testOnReturn: false
+  # 打开PSCache，并且指定每个连接上PSCache的大小
+  poolPreparedStatements: true
+  maxPoolPreparedStatementPerConnectionSize: 20
+  # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+  spring.datasource.filters: stat,wall,log4j
+  # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+  connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  # 合并多个DruidDataSource的监控数据
+  #useGlobalDataSourceStat: true
+  #配置邮件发送
+  mail:
+    host: smtp.sina.cn
+    username: 13882006101@sina.cn
+    password: P@ssw0rd,
+    # 设置是否需要认证，如果为true,那么用户名和密码就必须的，
+    #如果设置false，可以不设置用户名和密码，当然也得看你的对接的平台是否支持无密码进行访问的。
+    properties:
+      mail:
+        smtp:
+          auth: true
+        # STARTTLS[1]  是对纯文本通信协议的扩展。它提供一种方式将纯文本连接升级为加密连接（TLS或SSL），而不是另外使用一个端口作加密通信。
+        starttls:
+          enable: true
+          required: true
+mybatis:
+  #扫描配置文件
+  config-locations: classpath:mybatis/mybatis-config.xml
+pagehelper:   #Mybatis分页插件
+  dialect: com.github.pagehelper.PageHelper
+  autoDialect: true
+  closeConn: false
+  reasonable: true
+#文件上传配置
+upload:
+  localtion:  #配置默认文件保存位置
+    windows: d:/Users/meatball/file/
+    linux: /Users/zhang.xiangyu/workspace/meatball/file/
+  maxFileSize: 10240KB #单个文件最大KB/MB
+  maxRequestSize: 102400KB   #设置总上传数据总大小
+#日志配置
+logging:
+  config: classpath:log4j2.xml

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.write.UserPlevelWriteDao">
+
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+		INSERT INTO order_info (
+		`orderno`,
+		`orderpartyno`,
+		`serialnumber`
+		)
+		VALUES
+		(
+		#{orderno} ,
+		#{orderpartyno} ,
+		#{serialnumber}
+		)
+	</insert>
+
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO order_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="orderno != null">`orderno`,</if>
+			<if test="orderpartyno != null">`orderpartyno`,</if>
+			<if test="serialnumber != null">`serialnumber`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="orderno != null">#{orderno},</if>
+			<if test="orderpartyno != null">#{orderpartyno},</if>
+			<if test="serialnumber != null">#{serialnumber},</if>
+		</trim>
+	</insert>
+
+	<update id="upt" parameterType="map">
+		UPDATE partner_info
+		<set>
+			<if test="partnername != null">partnername=#{partnername},</if>
+			<if test="type != null">type=#{type},</if>
+			<if test="name != null">name=#{name},</if>
+		</set> WHERE id = #{id}
+	</update>
+
+	<delete id="del" parameterType="map">DELETE FROM partner_info WHERE id = #{id}</delete>
+</mapper>

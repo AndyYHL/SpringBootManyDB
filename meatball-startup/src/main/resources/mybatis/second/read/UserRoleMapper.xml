@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qxst.e.meatballstartup.dao.second.read.UserRoleReadDao">
+
+	<select id="find"  parameterType="map" resultType="map">
+		SELECT rfid_id as id,rfid_code as code,rfid_name as name,
+		CASE rfid_status
+		WHEN '1' THEN '运行中'
+		WHEN '0' THEN '停用'
+		WHEN '-1' THEN '故障'
+		ELSE '其他' END  as status
+		,location,lng,lat,addtime FROM cm_eplate_ydq
+		WHERE 1=1
+		<if test="location != null and location != ''">
+			<if test="location != '全部'"> AND location LIKE '%${location}%'</if>
+		</if>
+		<if test="name != null and name != ''"> AND rfid_name LIKE '%${name}%'</if>
+		;
+	</select>
+
+	<select id="findEntity" parameterType="map" resultType="map">
+		SELECT tw_id as id,tw_code as code,tw_name as name,
+		CASE tw_status
+		WHEN '1' THEN '运行中'
+		WHEN '0' THEN '停用'
+		WHEN '-1' THEN '故障'
+		ELSE '其他' END  as status,
+		location,lng,lat,addtime FROM cm_eplate_tw
+		WHERE 1=1
+		<if test="location != null and location != ''">
+			<if test="location != '全部'">
+				AND location LIKE '%${location}%'
+			</if>
+		</if>
+		<if test="name != null and name != ''"> AND tw_name LIKE '%${name}%'</if>;
+	</select>
+	<!-- 分页查询数据 -->
+	<select id="findLimit" resultType="map" parameterType="map">
+		SELECT t.id,t.rfid_id,t.rfid_code,t.rfid_name,t.rfid_status,
+		CASE t.rfid_status
+		WHEN '1' THEN '运行中'
+		WHEN '0' THEN '停用'
+		WHEN '-1' THEN '故障'
+		ELSE '其他' END  as statusVal
+		,t.location,t.lng,t.lat,t.addtime FROM cm_eplate_ydq t INNER JOIN(SELECT id FROM cm_eplate_ydq WHERE 1 = 1
+		<if test="data != null">
+			<if test="data.rfid_name !=null and data.rfid_name != ''"> AND rfid_name = #{data.rfid_name}</if>
+			<if test="data.location !=null and data.location != '全部'"> AND location LIKE '%${data.location}%'</if>
+		</if>
+		ORDER BY id DESC
+		LIMIT ${(extlimit.pageindex-1)*extlimit.pagesize},${extlimit.pagesize}) AS page USING(id)
+		ORDER BY
+		<choose>
+			<when test="extlimit.sort != null">
+				${extlimit.sort} ${extlimit.dir}
+			</when>
+			<otherwise>
+				id DESC
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="findCount" resultType="int" parameterType="map">
+		SELECT COUNT(1) AS totalCount FROM cm_eplate_ydq WHERE 1=1
+		<if test="data != null">
+			<if test="data.rfid_name !=null and data.rfid_name != ''"> AND rfid_name = #{data.rfid_name}</if>
+			<if test="data.location !=null and data.location != '全部'"> AND location LIKE '%${data.location}%'</if>
+		</if>
+	</select>
+
+</mapper>

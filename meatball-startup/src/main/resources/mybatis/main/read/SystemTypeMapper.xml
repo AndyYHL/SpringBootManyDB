@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qxst.e.meatballstartup.dao.main.read.SystemTypeReadDao">
+
+	<select id="find"  parameterType="map" resultType="map">
+		SELECT id,name,typename,typeid FROM system_type
+		WHERE 1=1
+		<if test="data != null">
+			<if test="data.id !=null and data.id != ''"> AND id = #{data.id}</if>
+			<if test="data.typename !=null and data.typename != ''"> AND typename = #{data.typename}</if>
+			<if test="data.typeid !=null and data.typeid != ''"> AND typeid = #{data.typeid}</if>
+		</if>
+	</select>
+
+	<select id="findEntity" parameterType="map" resultType="map">
+		SELECT id,name,typename,typeid FROM system_type
+		WHERE 1=1
+		<if test="data != null">
+			<if test="data.typename !=null and data.typename != ''"> AND typename = #{data.typename}</if>
+			<if test="data.typeid !=null and data.typeid != ''"> AND typeid = #{data.typeid}</if>
+		</if>
+	</select>
+	<!-- 分页查询数据 -->
+	<select id="findLimit" resultType="map" parameterType="map">
+		SELECT id,name,typename,typeid FROM system_type
+		WHERE 1=1
+		<if test="data != null">
+			<if test="data.typename !=null and data.typename != ''"> AND typename = #{data.typename}</if>
+			<if test="data.typeid !=null and data.typeid != ''"> AND typeid = #{data.typeid}</if>
+		</if>
+		<if test="extlimit != null">
+		ORDER BY
+		<choose>
+			<when test="extlimit.sort != null">
+				${extlimit.sort} ${extlimit.dir}
+			</when>
+			<otherwise>
+				id DESC
+			</otherwise>
+		</choose>
+		LIMIT ${(extlimit.pageindex-1)*extlimit.pagesize},${extlimit.pagesize}
+		</if>
+	</select>
+
+	<select id="findCount" resultType="int" parameterType="map">
+		SELECT COUNT(1) AS totalCount FROM system_type WHERE 1=1
+		<if test="data != null">
+			<if test="data.typename !=null and data.typename != ''"> AND typename = #{data.typename}</if>
+			<if test="data.typeid !=null and data.typeid != ''"> AND typeid = #{data.typeid}</if>
+		</if>
+	</select>
+
+</mapper>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.read.UserInfoReadDao">
+
+	<select id="find"  parameterType="map" resultType="map">
+		SELECT id,`name`,pwd,phone,realname,addtime,loginip,
+		CASE `status`
+		WHEN '1' THEN '运行中'
+		WHEN '0' THEN '停用'
+		WHEN '-1' THEN '故障'
+		ELSE '其他' END  as status,
+		statusval,isdelete,uuid,prison_id,role_id,role_name
+		FROM user_info
+		WHERE 1=1
+		<if test="data != null">
+			<if test="data.name !=null and data.name != '' and data.pwd !=null and data.pwd != ''"> AND name = #{data.name} AND pwd = #{data.pwd} </if>
+			<if test="data.userid !=null and data.userid != ''"> AND id = #{data.userid}</if>
+		</if>
+	</select>
+
+	<select id="findEntity" parameterType="map" resultType="map">
+		SELECT id,`name`,pwd,phone,realname,addtime,loginip,
+		CASE `status`
+		WHEN '1' THEN '运行中'
+		WHEN '0' THEN '停用'
+		WHEN '-1' THEN '故障'
+		ELSE '其他' END  as status,
+		statusval,isdelete,uuid,prison_id,role_id,role_name
+		FROM user_info
+		WHERE 1=1
+		<if test="data != null">
+			<if test="data.name !=null and data.name != '' and data.pwd !=null and data.pwd != ''"> AND name = #{data.name} AND pwd = #{data.pwd} </if>
+			<if test="data.userid !=null and data.userid != ''"> AND id = #{data.userid}</if>
+		</if>
+	</select>
+	<!-- 分页查询数据 -->
+	<select id="findLimit" resultType="map" parameterType="map">
+		SELECT * FROM user_info AS t
+		WHERE isdelete = 0
+		<if test="data != null">
+			<if test="data.name !=null and data.name != ''"> AND name = #{data.name} </if>
+			<if test="data.status !=null and data.status != ''"> AND status = #{data.status}</if>
+		</if>
+		ORDER BY
+		<choose>
+			<when test="extlimit.sort != null">
+				${extlimit.sort} ${extlimit.dir}
+			</when>
+			<otherwise>
+				id DESC
+			</otherwise>
+		</choose>
+		LIMIT ${(extlimit.pageindex-1)*extlimit.pagesize},${extlimit.pagesize}
+	</select>
+
+	<select id="findCount" resultType="int" parameterType="map">
+		SELECT COUNT(1) AS totalCount FROM user_info WHERE isdelete = 0
+		<if test="data != null">
+			<if test="data.prison_id !=null and data.prison_id != ''"> AND prison_id = #{data.prison_id} </if>
+			<if test="data.status !=null and data.status != ''"> AND status = #{data.status}</if>
+		</if>
+	</select>
+
+	<select id="uLogin" resultType="map" parameterType="map">
+		SELECT id,`name`,pwd,phone,realname,addtime,loginip,
+		CASE `status`
+		WHEN '1' THEN '运行中'
+		WHEN '0' THEN '停用'
+		WHEN '-1' THEN '故障'
+		ELSE '其他' END  as status,
+		statusval,isdelete,uuid,prison_id,role_id,role_name
+		FROM user_info
+		WHERE 1=1
+		<if test="name !=null and name != '' and pwd !=null and pwd != ''"> AND name = #{name} AND pwd = #{pwd} </if>
+	</select>
+	
+	<select id="uPlevel" resultType="map" parameterType="map">
+		SELECT u.id,u.name,u.prison_id,k.* FROM user_info u LEFT JOIN (
+		SELECT f.role_id,GROUP_CONCAT(t.name SEPARATOR ' | ') AS plev FROM  (
+		SELECT a.id,role_id,plevel_id,code,plevel,`status`,grade,isdelete FROM user_role_plevel a LEFT JOIN user_plevel b
+		on(a.plevel_id = b.id) WHERE role_id = 1) f LEFT JOIN prison_info t
+		on(t.name = f.plevel) WHERE f.code LIKE '%J%') k on(u.id = k.role_id)
+	</select>
+
+</mapper>

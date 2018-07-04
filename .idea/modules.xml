@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/meatball-startup/meatball-startup.iml" filepath="$PROJECT_DIR$/meatball-startup/meatball-startup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/meatballreport-platform.iml" filepath="$PROJECT_DIR$/meatballreport-platform.iml" />
+    </modules>
+  </component>
+</project>
