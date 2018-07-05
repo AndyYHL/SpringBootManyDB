@@ -5,6 +5,7 @@ import com.qxst.e.meatballstartup.service.UserInfoService;
 import com.qxst.e.meatballstartup.state.FinalJson;
 import com.qxst.e.meatballstartup.util.json.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -26,8 +27,9 @@ public class UserInfoServiceimpl implements UserInfoService {
         int count = userInfoReadDao.findCount(map);
         jsonUtil.setData(dataList);
         jsonUtil.getExtlimit().setCount(count);
-        jsonUtil.getInfo().setStatus(FinalJson.STATUS_OK);
-        jsonUtil.getInfo().setMessage("请求成功");
+        //jsonUtil.getInfo().setStatus(FinalJson.STATUS_OK);
+        jsonUtil.getInfo().setStatus(HttpStatus.OK.value());
+        jsonUtil.getInfo().setMessage("请求成功"+HttpStatus.OK.getReasonPhrase());
         return jsonUtil;
     }
 }
