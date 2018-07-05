@@ -18,7 +18,7 @@ public class UserInfoServiceimpl implements UserInfoService {
     UserInfoReadDao userInfoReadDao;
 
     @Override
-    @Transactional(value = "firstTransactionManager") //开启事务管理
+    @Transactional(value = "firstTransactionManager",rollbackFor = Exception.class) //开启事务管理
     public JsonUtil findLimit(Map map, JsonUtil jsonUtil) {
         if(map == null){
             jsonUtil.getInfo().setStatus(FinalJson.STATUS_NOTACCEPTABLE);
