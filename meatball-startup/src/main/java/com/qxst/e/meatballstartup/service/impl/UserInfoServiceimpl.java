@@ -7,6 +7,7 @@ import com.qxst.e.meatballstartup.util.json.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,7 @@ public class UserInfoServiceimpl implements UserInfoService {
     UserInfoReadDao userInfoReadDao;
 
     @Override
+    @Transactional(value = "firstTransactionManager") //开启事务管理
     public JsonUtil findLimit(Map map, JsonUtil jsonUtil) {
         if(map == null){
             jsonUtil.getInfo().setStatus(FinalJson.STATUS_NOTACCEPTABLE);
