@@ -29,6 +29,7 @@ public class UserInfoServiceimpl implements UserInfoService {
         int count = userInfoReadDao.findCount(map);
         jsonUtil.setData(dataList);
         jsonUtil.getExtlimit().setCount(count);
+        //处理返回结果
         //jsonUtil.getInfo().setStatus(FinalJson.STATUS_OK);
         jsonUtil.getInfo().setStatus(HttpStatus.OK.value());
         jsonUtil.getInfo().setMessage("请求成功"+HttpStatus.OK.getReasonPhrase());
