@@ -1,5 +1,5 @@
 server:
-  port: 80 #配置端口号
+  port: 9999 #配置端口号
   #port: 12580
 secret:
   key: Jeisr^l,?>0  #token验证密钥
@@ -34,7 +34,7 @@ spring:
     cache: false  #禁用缓存，开发适用
   datasource:
    first:
-     jdbc-url: jdbc:mysql://172.16.2.153:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useUnicode=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+     jdbc-url: jdbc:mysql://101.207.248.146:53306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useUnicode=true&zeroDateTimeBehavior=convertToNull&useSSL=false
      username: root
      password: root
      type: com.alibaba.druid.pool.DruidDataSource  #使用druid数据源
@@ -53,7 +53,7 @@ spring:
        poolPreparedStatements: true
        maxOpenPreparedStatements: 20
    second:
-     jdbc-url: jdbc:mysql://172.16.2.153:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useUnicode=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+     jdbc-url: jdbc:mysql://101.207.248.146:53306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useUnicode=true&zeroDateTimeBehavior=convertToNull&useSSL=false
      username: root
      password: root
      type: com.alibaba.druid.pool.DruidDataSource  #使用druid数据源
@@ -72,7 +72,7 @@ spring:
        poolPreparedStatements: true
        maxOpenPreparedStatements: 20
    main:
-     jdbc-url: jdbc:mysql://172.16.2.153:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useUnicode=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+     jdbc-url: jdbc:mysql://101.207.248.146:53306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useUnicode=true&zeroDateTimeBehavior=convertToNull&useSSL=false
      username: root
      password: root
      type: com.alibaba.druid.pool.DruidDataSource  #使用druid数据源
