@@ -39,4 +39,11 @@
 	</update>
 
 	<delete id="del" parameterType="map">DELETE FROM partner_info WHERE id = #{id}</delete>
+
+	<insert id="insertTranscationList">
+		insert into emp(last_name,email,gender,d_id) values
+		<foreach collection="emps" item="emp"  separator="," >
+			(#{emp.last_name},#{emp.email},#{emp.gender},#{emp.d_id})
+		</foreach>
+	</insert>
 </mapper>

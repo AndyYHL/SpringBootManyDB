@@ -2,6 +2,7 @@ package com.qxst.e.meatballstartup.dao;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,5 +33,12 @@ public interface BaseWriteDao {
      * @param m
      */
     Integer del(Map m);
+
+    /**
+     * 批量插入
+     * @param list
+     * @return
+     */
+    Integer insertTranscationList(List list);
 
 }
