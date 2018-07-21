@@ -38,4 +38,5 @@ eureka:
     ipAddress: 127.0.0.1
   client:
     #服务注册中心
-    service-url: http://${eureka.instance.hostname}:8761/eureka/
+    service-url:
+     default-zone: http://${eureka.instance.hostname}:8761/eureka/

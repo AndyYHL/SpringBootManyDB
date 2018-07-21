@@ -11,8 +11,8 @@
     <modules>
         <module>meatball-eureka</module>
         <module>meatball-config</module>
-        <module>meatball-gateway</module>
         <module>meatball-startup</module>
+        <module>meatball-gateway</module>
     </modules>
     <name>meatballreport</name>
     <description>Demo project for Spring Boot</description>

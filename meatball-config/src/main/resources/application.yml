@@ -18,8 +18,9 @@ eureka:
   instance:
     hostname: localhost
     prefer-ip-address: true #将自己的ip地址注册到Eureka服务中
-    ipAddress: 127.0.0.1
+    ip-address: 127.0.0.1
   client:
     #服务注册中心
-    service-url: http://${eureka.instance.hostname}:8761/eureka/
+    service-url:
+      default-zone: http://${eureka.instance.hostname}:8761/eureka/
 
