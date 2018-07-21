@@ -13,6 +13,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
       <module name="meatball-config" target="1.8" />
       <module name="meatball-eureka" target="1.8" />
       <module name="meatball-gateway" target="1.8" />

@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="meatball-gateway:war">
     <output-path>$PROJECT_DIR$/meatball-gateway/target</output-path>
-    <root id="archive" name="meatballgateway-0.0.1-SNAPSHOT.war">
+    <root id="archive" name="meatball-gateway-0.0.1-SNAPSHOT.war">
       <element id="artifact" artifact-name="meatball-gateway:war exploded" />
     </root>
   </artifact>

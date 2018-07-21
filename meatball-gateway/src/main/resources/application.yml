@@ -30,17 +30,12 @@ logging:
     org.springframework.http.server.reactive: debug
     org.springframework.web.reactive: debug
     reactor.ipc.netty: debug
-
-
+#服务注册中心
 eureka:
   instance:
-      hostname: localhost
-      prefer-ip-address: true #将自己的ip地址注册到Eureka服务中
-      ipAddress: 127.0.0.1
+    hostname: localhost
+    prefer-ip-address: true #将自己的ip地址注册到Eureka服务中
+    ipAddress: 127.0.0.1
   client:
     #服务注册中心
     service-url: http://${eureka.instance.hostname}:8761/eureka/
-
-feign:
-  hystrix:
-    enabled: true
