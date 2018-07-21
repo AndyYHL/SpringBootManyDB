@@ -26,7 +26,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.BUILD-SNAPSHOT</spring-cloud.version>
-        <druid.version>1.0.11</druid.version>
+        <druid.version>1.1.0</druid.version>
         <fastjson.version>1.2.23</fastjson.version>
     </properties>
 
@@ -85,7 +85,7 @@
         <!-- alibaba的druid数据库连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
+            <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.version}</version>
         </dependency>
         <!--fastjson -->

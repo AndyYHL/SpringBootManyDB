@@ -59,7 +59,7 @@ spring:
      type: com.alibaba.druid.pool.DruidDataSource  #使用druid数据源
      driver-class-name: com.mysql.jdbc.Driver
      druid:
-       maxActive: 20
+       max-active: 20
        initialSize: 1
        maxWait: 600000
        minidle: 1
