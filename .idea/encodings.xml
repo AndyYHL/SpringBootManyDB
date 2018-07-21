@@ -2,7 +2,9 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meatball-config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/meatball-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meatball-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/meatball-startup" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

@@ -6,12 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="meatball-config" />
         <module name="meatball-eureka" />
+        <module name="meatball-gateway" />
         <module name="meatball-startup" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="meatball-config" target="1.8" />
       <module name="meatball-eureka" target="1.8" />
+      <module name="meatball-gateway" target="1.8" />
       <module name="meatball-startup" target="1.8" />
       <module name="meatballreport-platform" target="1.8" />
     </bytecodeTargetLevel>

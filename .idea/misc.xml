@@ -9,6 +9,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/meatball-startup/pom.xml" />
         <option value="$PROJECT_DIR$/meatball-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/meatball-config/pom.xml" />
+        <option value="$PROJECT_DIR$/meatball-gateway/pom.xml" />
       </list>
     </option>
   </component>
