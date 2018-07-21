@@ -1,11 +1,13 @@
 package com.qxst.e.meatballgateway;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@SpringBootApplication
-@EnableDiscoveryClient //注册客户端
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@EnableEurekaClient
 public class MeatballgatewayApplication {
 
     public static void main(String[] args) {

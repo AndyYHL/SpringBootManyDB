@@ -21,7 +21,7 @@ spring:
 #          - Pach=/USER-SERVICE/**
 
 server:
-  port: 5001
+  port: 5222
 #服务注册中心
 eureka:
   instance:

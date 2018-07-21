@@ -7,7 +7,7 @@
           <element id="module-output" name="meatball-gateway" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-actuator:2.0.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:2.0.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:2.0.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.0.3.RELEASE" />
@@ -20,17 +20,10 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.19" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-actuator-autoconfigure:2.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-actuator:2.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.6" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.7.RELEASE" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.6" />
-          <element id="library" level="project" name="Maven: io.micrometer:micrometer-core:1.0.5" />
-          <element id="library" level="project" name="Maven: org.hdrhistogram:HdrHistogram:2.1.10" />
-          <element id="library" level="project" name="Maven: org.latencyutils:LatencyUtils:2.0.3" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-json:2.0.3.RELEASE" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.6" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.6" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.6" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.6" />
           <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.0.10.Final" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
@@ -40,6 +33,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-starter-gateway:2.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-starter:2.0.0.RELEASE" />
@@ -120,6 +114,7 @@
           <element id="library" level="project" name="Maven: io.reactivex:rxnetty-contexts:0.4.9" />
           <element id="library" level="project" name="Maven: io.reactivex:rxnetty-servo:0.4.9" />
           <element id="library" level="project" name="Maven: com.netflix.hystrix:hystrix-core:1.5.12" />
+          <element id="library" level="project" name="Maven: org.hdrhistogram:HdrHistogram:2.1.9" />
           <element id="library" level="project" name="Maven: io.reactivex:rxnetty:0.4.9" />
           <element id="library" level="project" name="Maven: io.netty:netty-transport-native-epoll:4.1.25.Final" />
           <element id="library" level="project" name="Maven: com.netflix.ribbon:ribbon-core:2.2.5" />
