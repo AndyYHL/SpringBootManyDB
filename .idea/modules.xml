@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/meatball-eureka/meatball-eureka.iml" filepath="$PROJECT_DIR$/meatball-eureka/meatball-eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/meatball-startup/meatball-startup.iml" filepath="$PROJECT_DIR$/meatball-startup/meatball-startup.iml" />
       <module fileurl="file://$PROJECT_DIR$/meatballreport-platform.iml" filepath="$PROJECT_DIR$/meatballreport-platform.iml" />
     </modules>

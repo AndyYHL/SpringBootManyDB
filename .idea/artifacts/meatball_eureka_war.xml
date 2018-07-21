@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="meatball-eureka:war">
+    <output-path>$PROJECT_DIR$/meatball-eureka/target</output-path>
+    <root id="archive" name="meatball-eureka-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="meatball-eureka:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>meatball-eureka</module>
         <module>meatball-startup</module>
     </modules>
     <name>meatballreport</name>
