@@ -39,57 +39,54 @@ spring:
      password: root
      type: com.alibaba.druid.pool.DruidDataSource  #使用druid数据源
      driver-class-name: com.mysql.jdbc.Driver
-     druid:
-       maxActive: 20
-       initialSize: 1
-       maxWait: 600000
-       minIdle: 1
-       timeBetweenEvictionRunsMillis: 600000
-       minEvictableidleTimeMillis: 300000
-       validationQuery: select 1
-       testWhileIdle: true
-       testOnBorrow: false
-       testOnReturn: false
-       poolPreparedStatements: true
-       maxOpenPreparedStatements: 20
+     maxActive: 20
+     initialSize: 1
+     maxWait: 600000
+     minIdle: 1
+     timeBetweenEvictionRunsMillis: 600000
+     minEvictableidleTimeMillis: 300000
+     validationQuery: select 1
+     testWhileIdle: true
+     testOnBorrow: false
+     testOnReturn: false
+     poolPreparedStatements: true
+     maxOpenPreparedStatements: 20
    second:
      jdbc-url: jdbc:mysql://101.207.248.146:53306/yqy?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useUnicode=true&zeroDateTimeBehavior=convertToNull&useSSL=false
      username: root
      password: root
      type: com.alibaba.druid.pool.DruidDataSource  #使用druid数据源
      driver-class-name: com.mysql.jdbc.Driver
-     druid:
-       max-active: 20
-       initialSize: 1
-       maxWait: 600000
-       minidle: 1
-       timeBetweenEvictionRunsMillis: 600000
-       minEvictableidleTimeMillis: 300000
-       validationQuery: select 1
-       testWhileIdle: true
-       testOnBorrow: false
-       testOnReturn: false
-       poolPreparedStatements: true
-       maxOpenPreparedStatements: 20
+     max-active: 20
+     initialSize: 1
+     maxWait: 600000
+     minidle: 1
+     timeBetweenEvictionRunsMillis: 600000
+     minEvictableidleTimeMillis: 300000
+     validationQuery: select 1
+     testWhileIdle: true
+     testOnBorrow: false
+     testOnReturn: false
+     poolPreparedStatements: true
+     maxOpenPreparedStatements: 20
    main:
      jdbc-url: jdbc:mysql://101.207.248.146:53306/yqy?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useUnicode=true&zeroDateTimeBehavior=convertToNull&useSSL=false
      username: root
      password: root
      type: com.alibaba.druid.pool.DruidDataSource  #使用druid数据源
      driver-class-name: com.mysql.jdbc.Driver
-     druid:
-       maxActive: 20
-       initialSize: 1
-       maxWait: 600000
-       minidle: 1
-       timeBetweenEvictionRunsMillis: 600000
-       minEvictableidleTimeMillis: 300000
-       validationQuery: select 1
-       testWhileIdle: true
-       testOnBorrow: false
-       testOnReturn: false
-       poolPreparedStatements: true
-       maxOpenPreparedStatements: 20
+     maxActive: 20
+     initialSize: 1
+     maxWait: 600000
+     minidle: 1
+     timeBetweenEvictionRunsMillis: 600000
+     minEvictableidleTimeMillis: 300000
+     validationQuery: select 1
+     testWhileIdle: true
+     testOnBorrow: false
+     testOnReturn: false
+     poolPreparedStatements: true
+     maxOpenPreparedStatements: 20
 
 
   #配置邮件发送
