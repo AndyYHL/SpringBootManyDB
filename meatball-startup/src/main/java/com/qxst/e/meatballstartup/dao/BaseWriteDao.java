@@ -36,9 +36,9 @@ public interface BaseWriteDao {
 
     /**
      * 批量插入
-     * @param list
+     * @param m
      * @return
      */
-    Integer insertTranscationList(List list);
+    Integer insertTranscationList(Map m);
 
 }
