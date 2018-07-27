@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.second.write.CmShoppingWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_shopping ( `sys_type_id` , `typename` , `subject` , `brief` , `description` , `language` , `periodofvalidity` , `biztype` , `picture` , `cargonumber` , `amountonsale` , `retailprice` , `price` , `pricerange` , `skucode` , `supportonlinetrade` , `saletype` , `webSite` , `unit` , `isdelete` , `prison_id` , `source` , `sourceval` , `addtime` , `status` , `statusval` , `sendaddressId` , `sendaddresstext` , `packaging` , `user_id` , `serviceagency_id` , `price_region` , `issetmeal` , `billingtype` , `billingtypename` , `pricerange_one` , `pricerange_two` , `price_name` , `price_remark` , `buynum` , `object_id` ) VALUES ( #{data.sys_type_id,jdbcType=INTEGER} , #{data.typename,jdbcType=VARCHAR} , #{data.subject,jdbcType=VARCHAR} , #{data.brief,jdbcType=VARCHAR} , #{data.description,jdbcType=VARCHAR} , #{data.language,jdbcType=VARCHAR} , #{data.periodofvalidity,jdbcType=INTEGER} , #{data.biztype,jdbcType=INTEGER} , #{data.picture,jdbcType=VARCHAR} , #{data.cargonumber,jdbcType=VARCHAR} , #{data.amountonsale,jdbcType=INTEGER} , #{data.retailprice,jdbcType=DECIMAL} , #{data.price,jdbcType=DECIMAL} , #{data.pricerange,jdbcType=DECIMAL} , #{data.skucode,jdbcType=VARCHAR} , #{data.supportonlinetrade,jdbcType=BOOLEAN} , #{data.saletype,jdbcType=VARCHAR} , #{data.webSite,jdbcType=VARCHAR} , #{data.unit,jdbcType=VARCHAR} , #{data.isdelete,jdbcType=INTEGER} , #{data.prison_id,jdbcType=INTEGER} , #{data.source,jdbcType=INTEGER} , #{data.sourceval,jdbcType=VARCHAR} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.status,jdbcType=INTEGER} , #{data.statusval,jdbcType=VARCHAR} , #{data.sendaddressId,jdbcType=INTEGER} , #{data.sendaddresstext,jdbcType=VARCHAR} , #{data.packaging,jdbcType=VARCHAR} , #{data.user_id,jdbcType=INTEGER} , #{data.serviceagency_id,jdbcType=INTEGER} , #{data.price_region,jdbcType=VARCHAR} , #{data.issetmeal,jdbcType=INTEGER} , #{data.billingtype,jdbcType=INTEGER} , #{data.billingtypename,jdbcType=VARCHAR} , #{data.pricerange_one,jdbcType=DECIMAL} , #{data.pricerange_two,jdbcType=DECIMAL} , #{data.price_name,jdbcType=VARCHAR} , #{data.price_remark,jdbcType=VARCHAR} , #{data.buynum,jdbcType=VARCHAR} , #{data.object_id,jdbcType=VARCHAR} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_shopping
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.sys_type_id != null">`sys_type_id`,</if>
+			<if test="data.typename != null">`typename`,</if>
+			<if test="data.subject != null">`subject`,</if>
+			<if test="data.brief != null">`brief`,</if>
+			<if test="data.description != null">`description`,</if>
+			<if test="data.language != null">`language`,</if>
+			<if test="data.periodofvalidity != null">`periodofvalidity`,</if>
+			<if test="data.biztype != null">`biztype`,</if>
+			<if test="data.picture != null">`picture`,</if>
+			<if test="data.cargonumber != null">`cargonumber`,</if>
+			<if test="data.amountonsale != null">`amountonsale`,</if>
+			<if test="data.retailprice != null">`retailprice`,</if>
+			<if test="data.price != null">`price`,</if>
+			<if test="data.pricerange != null">`pricerange`,</if>
+			<if test="data.skucode != null">`skucode`,</if>
+			<if test="data.supportonlinetrade != null">`supportonlinetrade`,</if>
+			<if test="data.saletype != null">`saletype`,</if>
+			<if test="data.webSite != null">`webSite`,</if>
+			<if test="data.unit != null">`unit`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+			<if test="data.prison_id != null">`prison_id`,</if>
+			<if test="data.source != null">`source`,</if>
+			<if test="data.sourceval != null">`sourceval`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.status != null">`status`,</if>
+			<if test="data.statusval != null">`statusval`,</if>
+			<if test="data.sendaddressId != null">`sendaddressId`,</if>
+			<if test="data.sendaddresstext != null">`sendaddresstext`,</if>
+			<if test="data.packaging != null">`packaging`,</if>
+			<if test="data.user_id != null">`user_id`,</if>
+			<if test="data.serviceagency_id != null">`serviceagency_id`,</if>
+			<if test="data.price_region != null">`price_region`,</if>
+			<if test="data.issetmeal != null">`issetmeal`,</if>
+			<if test="data.billingtype != null">`billingtype`,</if>
+			<if test="data.billingtypename != null">`billingtypename`,</if>
+			<if test="data.pricerange_one != null">`pricerange_one`,</if>
+			<if test="data.pricerange_two != null">`pricerange_two`,</if>
+			<if test="data.price_name != null">`price_name`,</if>
+			<if test="data.price_remark != null">`price_remark`,</if>
+			<if test="data.buynum != null">`buynum`,</if>
+			<if test="data.object_id != null">`object_id`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.sys_type_id != null">#{data.sysTypeId,jdbcType=INTEGER},</if>
+			<if test="data.typename != null">#{data.typename,jdbcType=VARCHAR},</if>
+			<if test="data.subject != null">#{data.subject,jdbcType=VARCHAR},</if>
+			<if test="data.brief != null">#{data.brief,jdbcType=VARCHAR},</if>
+			<if test="data.description != null">#{data.description,jdbcType=VARCHAR},</if>
+			<if test="data.language != null">#{data.language,jdbcType=VARCHAR},</if>
+			<if test="data.periodofvalidity != null">#{data.periodofvalidity,jdbcType=INTEGER},</if>
+			<if test="data.biztype != null">#{data.biztype,jdbcType=INTEGER},</if>
+			<if test="data.picture != null">#{data.picture,jdbcType=VARCHAR},</if>
+			<if test="data.cargonumber != null">#{data.cargonumber,jdbcType=VARCHAR},</if>
+			<if test="data.amountonsale != null">#{data.amountonsale,jdbcType=INTEGER},</if>
+			<if test="data.retailprice != null">#{data.retailprice,jdbcType=DECIMAL},</if>
+			<if test="data.price != null">#{data.price,jdbcType=DECIMAL},</if>
+			<if test="data.pricerange != null">#{data.pricerange,jdbcType=DECIMAL},</if>
+			<if test="data.skucode != null">#{data.skucode,jdbcType=VARCHAR},</if>
+			<if test="data.supportonlinetrade != null">#{data.supportonlinetrade,jdbcType=BOOLEAN},</if>
+			<if test="data.saletype != null">#{data.saletype,jdbcType=VARCHAR},</if>
+			<if test="data.webSite != null">#{data.webSite,jdbcType=VARCHAR},</if>
+			<if test="data.unit != null">#{data.unit,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.prison_id != null">#{data.prisonId,jdbcType=INTEGER},</if>
+			<if test="data.source != null">#{data.source,jdbcType=INTEGER},</if>
+			<if test="data.sourceval != null">#{data.sourceval,jdbcType=VARCHAR},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.status != null">#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.statusval != null">#{data.statusval,jdbcType=VARCHAR},</if>
+			<if test="data.sendaddressId != null">#{data.sendaddressId,jdbcType=INTEGER},</if>
+			<if test="data.sendaddresstext != null">#{data.sendaddresstext,jdbcType=VARCHAR},</if>
+			<if test="data.packaging != null">#{data.packaging,jdbcType=VARCHAR},</if>
+			<if test="data.user_id != null">#{data.userId,jdbcType=INTEGER},</if>
+			<if test="data.serviceagency_id != null">#{data.serviceagencyId,jdbcType=INTEGER},</if>
+			<if test="data.price_region != null">#{data.priceRegion,jdbcType=VARCHAR},</if>
+			<if test="data.issetmeal != null">#{data.issetmeal,jdbcType=INTEGER},</if>
+			<if test="data.billingtype != null">#{data.billingtype,jdbcType=INTEGER},</if>
+			<if test="data.billingtypename != null">#{data.billingtypename,jdbcType=VARCHAR},</if>
+			<if test="data.pricerange_one != null">#{data.pricerangeOne,jdbcType=DECIMAL},</if>
+			<if test="data.pricerange_two != null">#{data.pricerangeTwo,jdbcType=DECIMAL},</if>
+			<if test="data.price_name != null">#{data.priceName,jdbcType=VARCHAR},</if>
+			<if test="data.price_remark != null">#{data.priceRemark,jdbcType=VARCHAR},</if>
+			<if test="data.buynum != null">#{data.buynum,jdbcType=VARCHAR},</if>
+			<if test="data.object_id != null">#{data.objectId,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_shopping
+		<set>
+			<if test="data.sys_type_id != null">sys_type_id=#{data.sys_type_id,jdbcType=INTEGER},</if>
+			<if test="data.typename != null">typename=#{data.typename,jdbcType=VARCHAR},</if>
+			<if test="data.subject != null">subject=#{data.subject,jdbcType=VARCHAR},</if>
+			<if test="data.brief != null">brief=#{data.brief,jdbcType=VARCHAR},</if>
+			<if test="data.description != null">description=#{data.description,jdbcType=VARCHAR},</if>
+			<if test="data.language != null">language=#{data.language,jdbcType=VARCHAR},</if>
+			<if test="data.periodofvalidity != null">periodofvalidity=#{data.periodofvalidity,jdbcType=INTEGER},</if>
+			<if test="data.biztype != null">biztype=#{data.biztype,jdbcType=INTEGER},</if>
+			<if test="data.picture != null">picture=#{data.picture,jdbcType=VARCHAR},</if>
+			<if test="data.cargonumber != null">cargonumber=#{data.cargonumber,jdbcType=VARCHAR},</if>
+			<if test="data.amountonsale != null">amountonsale=#{data.amountonsale,jdbcType=INTEGER},</if>
+			<if test="data.retailprice != null">retailprice=#{data.retailprice,jdbcType=DECIMAL},</if>
+			<if test="data.price != null">price=#{data.price,jdbcType=DECIMAL},</if>
+			<if test="data.pricerange != null">pricerange=#{data.pricerange,jdbcType=DECIMAL},</if>
+			<if test="data.skucode != null">skucode=#{data.skucode,jdbcType=VARCHAR},</if>
+			<if test="data.supportonlinetrade != null">supportonlinetrade=#{data.supportonlinetrade,jdbcType=BOOLEAN},</if>
+			<if test="data.saletype != null">saletype=#{data.saletype,jdbcType=VARCHAR},</if>
+			<if test="data.webSite != null">webSite=#{data.webSite,jdbcType=VARCHAR},</if>
+			<if test="data.unit != null">unit=#{data.unit,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.prison_id != null">prison_id=#{data.prison_id,jdbcType=INTEGER},</if>
+			<if test="data.source != null">source=#{data.source,jdbcType=INTEGER},</if>
+			<if test="data.sourceval != null">sourceval=#{data.sourceval,jdbcType=VARCHAR},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.status != null">status=#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.statusval != null">statusval=#{data.statusval,jdbcType=VARCHAR},</if>
+			<if test="data.sendaddressId != null">sendaddressId=#{data.sendaddressId,jdbcType=INTEGER},</if>
+			<if test="data.sendaddresstext != null">sendaddresstext=#{data.sendaddresstext,jdbcType=VARCHAR},</if>
+			<if test="data.packaging != null">packaging=#{data.packaging,jdbcType=VARCHAR},</if>
+			<if test="data.user_id != null">user_id=#{data.user_id,jdbcType=INTEGER},</if>
+			<if test="data.serviceagency_id != null">serviceagency_id=#{data.serviceagency_id,jdbcType=INTEGER},</if>
+			<if test="data.price_region != null">price_region=#{data.price_region,jdbcType=VARCHAR},</if>
+			<if test="data.issetmeal != null">issetmeal=#{data.issetmeal,jdbcType=INTEGER},</if>
+			<if test="data.billingtype != null">billingtype=#{data.billingtype,jdbcType=INTEGER},</if>
+			<if test="data.billingtypename != null">billingtypename=#{data.billingtypename,jdbcType=VARCHAR},</if>
+			<if test="data.pricerange_one != null">pricerange_one=#{data.pricerange_one,jdbcType=DECIMAL},</if>
+			<if test="data.pricerange_two != null">pricerange_two=#{data.pricerange_two,jdbcType=DECIMAL},</if>
+			<if test="data.price_name != null">price_name=#{data.price_name,jdbcType=VARCHAR},</if>
+			<if test="data.price_remark != null">price_remark=#{data.price_remark,jdbcType=VARCHAR},</if>
+			<if test="data.buynum != null">buynum=#{data.buynum,jdbcType=VARCHAR},</if>
+			<if test="data.object_id != null">object_id=#{data.object_id,jdbcType=VARCHAR},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_shopping WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_shopping ( `sys_type_id` , `typename` , `subject` , `brief` , `description` , `language` , `periodofvalidity` , `biztype` , `picture` , `cargonumber` , `amountonsale` , `retailprice` , `price` , `pricerange` , `skucode` , `supportonlinetrade` , `saletype` , `webSite` , `unit` , `isdelete` , `prison_id` , `source` , `sourceval` , `addtime` , `status` , `statusval` , `sendaddressId` , `sendaddresstext` , `packaging` , `user_id` , `serviceagency_id` , `price_region` , `issetmeal` , `billingtype` , `billingtypename` , `pricerange_one` , `pricerange_two` , `price_name` , `price_remark` , `buynum` , `object_id` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.sys_type_id,jdbcType=INTEGER} , #{item.typename,jdbcType=VARCHAR} , #{item.subject,jdbcType=VARCHAR} , #{item.brief,jdbcType=VARCHAR} , #{item.description,jdbcType=VARCHAR} , #{item.language,jdbcType=VARCHAR} , #{item.periodofvalidity,jdbcType=INTEGER} , #{item.biztype,jdbcType=INTEGER} , #{item.picture,jdbcType=VARCHAR} , #{item.cargonumber,jdbcType=VARCHAR} , #{item.amountonsale,jdbcType=INTEGER} , #{item.retailprice,jdbcType=DECIMAL} , #{item.price,jdbcType=DECIMAL} , #{item.pricerange,jdbcType=DECIMAL} , #{item.skucode,jdbcType=VARCHAR} , #{item.supportonlinetrade,jdbcType=BOOLEAN} , #{item.saletype,jdbcType=VARCHAR} , #{item.webSite,jdbcType=VARCHAR} , #{item.unit,jdbcType=VARCHAR} , #{item.isdelete,jdbcType=INTEGER} , #{item.prison_id,jdbcType=INTEGER} , #{item.source,jdbcType=INTEGER} , #{item.sourceval,jdbcType=VARCHAR} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.status,jdbcType=INTEGER} , #{item.statusval,jdbcType=VARCHAR} , #{item.sendaddressId,jdbcType=INTEGER} , #{item.sendaddresstext,jdbcType=VARCHAR} , #{item.packaging,jdbcType=VARCHAR} , #{item.user_id,jdbcType=INTEGER} , #{item.serviceagency_id,jdbcType=INTEGER} , #{item.price_region,jdbcType=VARCHAR} , #{item.issetmeal,jdbcType=INTEGER} , #{item.billingtype,jdbcType=INTEGER} , #{item.billingtypename,jdbcType=VARCHAR} , #{item.pricerange_one,jdbcType=DECIMAL} , #{item.pricerange_two,jdbcType=DECIMAL} , #{item.price_name,jdbcType=VARCHAR} , #{item.price_remark,jdbcType=VARCHAR} , #{item.buynum,jdbcType=VARCHAR} , #{item.object_id,jdbcType=VARCHAR} )</foreach>
+	</insert>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.second.read.CmOrderReadDao">
+	<select id="find" parameterType="map" resultType="map">SELECT `id` , `out_trade_no` , `scene` , `auth_code` , `subject` , `buyer_id` , `seller_id` , `total_amount` , `discountable_amount` , `body` , `operator_id` , `store_id` , `terminal_id` , `timeout_express` , `orderpartyno` , `addtime` , `earnpoint` , `source` , `sourceval` , `paytime` , `paymoney` , `paymentmoney` , `status` , `statusval` , `user_id` , `user_name` , `balance` , `money` , `coupon_id` , `couponprice` , `integral` , `starttime` , `endtime` , `updatetime` , `other_id` , `iphone` , `isexpense` , `expensename` , `isdelete` , `paytype` , `paytypename` , `remark` , `urladress` FROM cm_order WHERE 1=1 AND id = #{data.id,jdbcType=INTEGER}</select>
+	<select id="findEntity" parameterType="map" resultType="map">SELECT `id` , `out_trade_no` , `scene` , `auth_code` , `subject` , `buyer_id` , `seller_id` , `total_amount` , `discountable_amount` , `body` , `operator_id` , `store_id` , `terminal_id` , `timeout_express` , `orderpartyno` , `addtime` , `earnpoint` , `source` , `sourceval` , `paytime` , `paymoney` , `paymentmoney` , `status` , `statusval` , `user_id` , `user_name` , `balance` , `money` , `coupon_id` , `couponprice` , `integral` , `starttime` , `endtime` , `updatetime` , `other_id` , `iphone` , `isexpense` , `expensename` , `isdelete` , `paytype` , `paytypename` , `remark` , `urladress` FROM cm_order WHERE 1=1 AND id = #{data.id,jdbcType=INTEGER}</select>
+	<select id="findLimit" resultType="map" parameterType="map">SELECT `id` , `out_trade_no` , `scene` , `auth_code` , `subject` , `buyer_id` , `seller_id` , `total_amount` , `discountable_amount` , `body` , `operator_id` , `store_id` , `terminal_id` , `timeout_express` , `orderpartyno` , `addtime` , `earnpoint` , `source` , `sourceval` , `paytime` , `paymoney` , `paymentmoney` , `status` , `statusval` , `user_id` , `user_name` , `balance` , `money` , `coupon_id` , `couponprice` , `integral` , `starttime` , `endtime` , `updatetime` , `other_id` , `iphone` , `isexpense` , `expensename` , `isdelete` , `paytype` , `paytypename` , `remark` , `urladress` FROM cm_order WHERE 1 = 1 ORDER BY
+		<choose>
+			<when test="extlimit.sort != null">${extlimit.sort} ${extlimit.dir}</when>
+			<otherwise>id DESC</otherwise>
+		</choose> LIMIT ${(extlimit.pageindex-1)*extlimit.pagesize},${extlimit.pagesize}
+	</select>
+	<select id="findCount" resultType="int" parameterType="map">SELECT COUNT(1) AS totalCount FROM cm_order WHERE 1 = 1</select>
+</mapper>

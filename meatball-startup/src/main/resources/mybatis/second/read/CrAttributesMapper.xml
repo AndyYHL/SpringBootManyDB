@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.second.read.CrAttributesReadDao">
+	<select id="find" parameterType="map" resultType="map">SELECT `id` , `shop_id` , `attribute_id` , `attributename` , `value_id` , `value` , `iscustom` , `isshow` , `sys_type_id` , `addtime` FROM cr_attributes WHERE 1=1 AND id = #{data.id,jdbcType=INTEGER}</select>
+	<select id="findEntity" parameterType="map" resultType="map">SELECT `id` , `shop_id` , `attribute_id` , `attributename` , `value_id` , `value` , `iscustom` , `isshow` , `sys_type_id` , `addtime` FROM cr_attributes WHERE 1=1 AND id = #{data.id,jdbcType=INTEGER}</select>
+	<select id="findLimit" resultType="map" parameterType="map">SELECT `id` , `shop_id` , `attribute_id` , `attributename` , `value_id` , `value` , `iscustom` , `isshow` , `sys_type_id` , `addtime` FROM cr_attributes WHERE 1 = 1 ORDER BY
+		<choose>
+			<when test="extlimit.sort != null">${extlimit.sort} ${extlimit.dir}</when>
+			<otherwise>id DESC</otherwise>
+		</choose> LIMIT ${(extlimit.pageindex-1)*extlimit.pagesize},${extlimit.pagesize}
+	</select>
+	<select id="findCount" resultType="int" parameterType="map">SELECT COUNT(1) AS totalCount FROM cr_attributes WHERE 1 = 1</select>
+</mapper>

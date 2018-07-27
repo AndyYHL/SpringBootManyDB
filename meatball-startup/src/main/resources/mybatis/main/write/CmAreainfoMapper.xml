@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.main.write.CmAreainfoWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_areainfo ( `location_id` , `name_chs` , `parent_id` , `two_code` , `three_code` , `n_code` , `e_name` , `abbr` , `lng` , `lat` ) VALUES ( #{data.location_id,jdbcType=VARCHAR} , #{data.name_chs,jdbcType=VARCHAR} , #{data.parent_id,jdbcType=VARCHAR} , #{data.two_code,jdbcType=VARCHAR} , #{data.three_code,jdbcType=VARCHAR} , #{data.n_code,jdbcType=VARCHAR} , #{data.e_name,jdbcType=VARCHAR} , #{data.abbr,jdbcType=VARCHAR} , #{data.lng,jdbcType=VARCHAR} , #{data.lat,jdbcType=VARCHAR} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_areainfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.location_id != null">`location_id`,</if>
+			<if test="data.name_chs != null">`name_chs`,</if>
+			<if test="data.parent_id != null">`parent_id`,</if>
+			<if test="data.two_code != null">`two_code`,</if>
+			<if test="data.three_code != null">`three_code`,</if>
+			<if test="data.n_code != null">`n_code`,</if>
+			<if test="data.e_name != null">`e_name`,</if>
+			<if test="data.abbr != null">`abbr`,</if>
+			<if test="data.lng != null">`lng`,</if>
+			<if test="data.lat != null">`lat`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.location_id != null">#{data.locationId,jdbcType=VARCHAR},</if>
+			<if test="data.name_chs != null">#{data.nameChs,jdbcType=VARCHAR},</if>
+			<if test="data.parent_id != null">#{data.parentId,jdbcType=VARCHAR},</if>
+			<if test="data.two_code != null">#{data.twoCode,jdbcType=VARCHAR},</if>
+			<if test="data.three_code != null">#{data.threeCode,jdbcType=VARCHAR},</if>
+			<if test="data.n_code != null">#{data.nCode,jdbcType=VARCHAR},</if>
+			<if test="data.e_name != null">#{data.eName,jdbcType=VARCHAR},</if>
+			<if test="data.abbr != null">#{data.abbr,jdbcType=VARCHAR},</if>
+			<if test="data.lng != null">#{data.lng,jdbcType=VARCHAR},</if>
+			<if test="data.lat != null">#{data.lat,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_areainfo
+		<set>
+			<if test="data.location_id != null">location_id=#{data.location_id,jdbcType=VARCHAR},</if>
+			<if test="data.name_chs != null">name_chs=#{data.name_chs,jdbcType=VARCHAR},</if>
+			<if test="data.parent_id != null">parent_id=#{data.parent_id,jdbcType=VARCHAR},</if>
+			<if test="data.two_code != null">two_code=#{data.two_code,jdbcType=VARCHAR},</if>
+			<if test="data.three_code != null">three_code=#{data.three_code,jdbcType=VARCHAR},</if>
+			<if test="data.n_code != null">n_code=#{data.n_code,jdbcType=VARCHAR},</if>
+			<if test="data.e_name != null">e_name=#{data.e_name,jdbcType=VARCHAR},</if>
+			<if test="data.abbr != null">abbr=#{data.abbr,jdbcType=VARCHAR},</if>
+			<if test="data.lng != null">lng=#{data.lng,jdbcType=VARCHAR},</if>
+			<if test="data.lat != null">lat=#{data.lat,jdbcType=VARCHAR},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_areainfo WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_areainfo ( `location_id` , `name_chs` , `parent_id` , `two_code` , `three_code` , `n_code` , `e_name` , `abbr` , `lng` , `lat` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.location_id,jdbcType=VARCHAR} , #{item.name_chs,jdbcType=VARCHAR} , #{item.parent_id,jdbcType=VARCHAR} , #{item.two_code,jdbcType=VARCHAR} , #{item.three_code,jdbcType=VARCHAR} , #{item.n_code,jdbcType=VARCHAR} , #{item.e_name,jdbcType=VARCHAR} , #{item.abbr,jdbcType=VARCHAR} , #{item.lng,jdbcType=VARCHAR} , #{item.lat,jdbcType=VARCHAR} )</foreach>
+	</insert>
+</mapper>

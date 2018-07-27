@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.write.CmEnterpriseWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_enterprise ( `companyname` , `paycode` , `tradecode` , `companytype` , `industry` , `corporate` , `capital` , `foundtime` , `period` , `rorgan` , `approved` , `rstatus` , `address` , `scope` , `scale` , `tag` , `picture` , `min_picture` , `isdelete` , `addtime` , `status` , `remark` , `prison_id` ) VALUES ( #{data.companyname,jdbcType=VARCHAR} , #{data.paycode,jdbcType=VARCHAR} , #{data.tradecode,jdbcType=VARCHAR} , #{data.companytype,jdbcType=VARCHAR} , #{data.industry,jdbcType=VARCHAR} , #{data.corporate,jdbcType=VARCHAR} , #{data.capital,jdbcType=VARCHAR} , #{data.foundtime,jdbcType=TIMESTAMP} , #{data.period,jdbcType=VARCHAR} , #{data.rorgan,jdbcType=VARCHAR} , #{data.approved,jdbcType=TIMESTAMP} , #{data.rstatus,jdbcType=INTEGER} , #{data.address,jdbcType=VARCHAR} , #{data.scope,jdbcType=VARCHAR} , #{data.scale,jdbcType=VARCHAR} , #{data.tag,jdbcType=VARCHAR} , #{data.picture,jdbcType=VARCHAR} , #{data.min_picture,jdbcType=VARCHAR} , #{data.isdelete,jdbcType=INTEGER} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.status,jdbcType=INTEGER} , #{data.remark,jdbcType=VARCHAR} , #{data.prison_id,jdbcType=INTEGER} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_enterprise
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.companyname != null">`companyname`,</if>
+			<if test="data.paycode != null">`paycode`,</if>
+			<if test="data.tradecode != null">`tradecode`,</if>
+			<if test="data.companytype != null">`companytype`,</if>
+			<if test="data.industry != null">`industry`,</if>
+			<if test="data.corporate != null">`corporate`,</if>
+			<if test="data.capital != null">`capital`,</if>
+			<if test="data.foundtime != null">`foundtime`,</if>
+			<if test="data.period != null">`period`,</if>
+			<if test="data.rorgan != null">`rorgan`,</if>
+			<if test="data.approved != null">`approved`,</if>
+			<if test="data.rstatus != null">`rstatus`,</if>
+			<if test="data.address != null">`address`,</if>
+			<if test="data.scope != null">`scope`,</if>
+			<if test="data.scale != null">`scale`,</if>
+			<if test="data.tag != null">`tag`,</if>
+			<if test="data.picture != null">`picture`,</if>
+			<if test="data.min_picture != null">`min_picture`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.status != null">`status`,</if>
+			<if test="data.remark != null">`remark`,</if>
+			<if test="data.prison_id != null">`prison_id`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.companyname != null">#{data.companyname,jdbcType=VARCHAR},</if>
+			<if test="data.paycode != null">#{data.paycode,jdbcType=VARCHAR},</if>
+			<if test="data.tradecode != null">#{data.tradecode,jdbcType=VARCHAR},</if>
+			<if test="data.companytype != null">#{data.companytype,jdbcType=VARCHAR},</if>
+			<if test="data.industry != null">#{data.industry,jdbcType=VARCHAR},</if>
+			<if test="data.corporate != null">#{data.corporate,jdbcType=VARCHAR},</if>
+			<if test="data.capital != null">#{data.capital,jdbcType=VARCHAR},</if>
+			<if test="data.foundtime != null">#{data.foundtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.period != null">#{data.period,jdbcType=VARCHAR},</if>
+			<if test="data.rorgan != null">#{data.rorgan,jdbcType=VARCHAR},</if>
+			<if test="data.approved != null">#{data.approved,jdbcType=TIMESTAMP},</if>
+			<if test="data.rstatus != null">#{data.rstatus,jdbcType=INTEGER},</if>
+			<if test="data.address != null">#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.scope != null">#{data.scope,jdbcType=VARCHAR},</if>
+			<if test="data.scale != null">#{data.scale,jdbcType=VARCHAR},</if>
+			<if test="data.tag != null">#{data.tag,jdbcType=VARCHAR},</if>
+			<if test="data.picture != null">#{data.picture,jdbcType=VARCHAR},</if>
+			<if test="data.min_picture != null">#{data.minPicture,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.status != null">#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.remark != null">#{data.remark,jdbcType=VARCHAR},</if>
+			<if test="data.prison_id != null">#{data.prisonId,jdbcType=INTEGER},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_enterprise
+		<set>
+			<if test="data.companyname != null">companyname=#{data.companyname,jdbcType=VARCHAR},</if>
+			<if test="data.paycode != null">paycode=#{data.paycode,jdbcType=VARCHAR},</if>
+			<if test="data.tradecode != null">tradecode=#{data.tradecode,jdbcType=VARCHAR},</if>
+			<if test="data.companytype != null">companytype=#{data.companytype,jdbcType=VARCHAR},</if>
+			<if test="data.industry != null">industry=#{data.industry,jdbcType=VARCHAR},</if>
+			<if test="data.corporate != null">corporate=#{data.corporate,jdbcType=VARCHAR},</if>
+			<if test="data.capital != null">capital=#{data.capital,jdbcType=VARCHAR},</if>
+			<if test="data.foundtime != null">foundtime=#{data.foundtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.period != null">period=#{data.period,jdbcType=VARCHAR},</if>
+			<if test="data.rorgan != null">rorgan=#{data.rorgan,jdbcType=VARCHAR},</if>
+			<if test="data.approved != null">approved=#{data.approved,jdbcType=TIMESTAMP},</if>
+			<if test="data.rstatus != null">rstatus=#{data.rstatus,jdbcType=INTEGER},</if>
+			<if test="data.address != null">address=#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.scope != null">scope=#{data.scope,jdbcType=VARCHAR},</if>
+			<if test="data.scale != null">scale=#{data.scale,jdbcType=VARCHAR},</if>
+			<if test="data.tag != null">tag=#{data.tag,jdbcType=VARCHAR},</if>
+			<if test="data.picture != null">picture=#{data.picture,jdbcType=VARCHAR},</if>
+			<if test="data.min_picture != null">min_picture=#{data.min_picture,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.status != null">status=#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.remark != null">remark=#{data.remark,jdbcType=VARCHAR},</if>
+			<if test="data.prison_id != null">prison_id=#{data.prison_id,jdbcType=INTEGER},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_enterprise WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_enterprise ( `companyname` , `paycode` , `tradecode` , `companytype` , `industry` , `corporate` , `capital` , `foundtime` , `period` , `rorgan` , `approved` , `rstatus` , `address` , `scope` , `scale` , `tag` , `picture` , `min_picture` , `isdelete` , `addtime` , `status` , `remark` , `prison_id` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.companyname,jdbcType=VARCHAR} , #{item.paycode,jdbcType=VARCHAR} , #{item.tradecode,jdbcType=VARCHAR} , #{item.companytype,jdbcType=VARCHAR} , #{item.industry,jdbcType=VARCHAR} , #{item.corporate,jdbcType=VARCHAR} , #{item.capital,jdbcType=VARCHAR} , #{item.foundtime,jdbcType=TIMESTAMP} , #{item.period,jdbcType=VARCHAR} , #{item.rorgan,jdbcType=VARCHAR} , #{item.approved,jdbcType=TIMESTAMP} , #{item.rstatus,jdbcType=INTEGER} , #{item.address,jdbcType=VARCHAR} , #{item.scope,jdbcType=VARCHAR} , #{item.scale,jdbcType=VARCHAR} , #{item.tag,jdbcType=VARCHAR} , #{item.picture,jdbcType=VARCHAR} , #{item.min_picture,jdbcType=VARCHAR} , #{item.isdelete,jdbcType=INTEGER} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.status,jdbcType=INTEGER} , #{item.remark,jdbcType=VARCHAR} , #{item.prison_id,jdbcType=INTEGER} )</foreach>
+	</insert>
+</mapper>

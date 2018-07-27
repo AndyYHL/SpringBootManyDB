@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.second.write.CrShoppingSetmealWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_shopping_setmeal ( `shopping_id` , `name` , `brief` , `description` , `picture` , `retailprice` , `price` , `skucode` , `webSite` , `unit` , `isdelete` , `prison_id` , `source` , `addtime` , `status` , `statusval` , `serviceagency_id` , `price_region` ) VALUES ( #{data.shopping_id,jdbcType=INTEGER} , #{data.name,jdbcType=VARCHAR} , #{data.brief,jdbcType=VARCHAR} , #{data.description,jdbcType=VARCHAR} , #{data.picture,jdbcType=VARCHAR} , #{data.retailprice,jdbcType=DECIMAL} , #{data.price,jdbcType=DECIMAL} , #{data.skucode,jdbcType=VARCHAR} , #{data.webSite,jdbcType=VARCHAR} , #{data.unit,jdbcType=VARCHAR} , #{data.isdelete,jdbcType=INTEGER} , #{data.prison_id,jdbcType=INTEGER} , #{data.source,jdbcType=INTEGER} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.status,jdbcType=INTEGER} , #{data.statusval,jdbcType=VARCHAR} , #{data.serviceagency_id,jdbcType=INTEGER} , #{data.price_region,jdbcType=VARCHAR} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_shopping_setmeal
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.shopping_id != null">`shopping_id`,</if>
+			<if test="data.name != null">`name`,</if>
+			<if test="data.brief != null">`brief`,</if>
+			<if test="data.description != null">`description`,</if>
+			<if test="data.picture != null">`picture`,</if>
+			<if test="data.retailprice != null">`retailprice`,</if>
+			<if test="data.price != null">`price`,</if>
+			<if test="data.skucode != null">`skucode`,</if>
+			<if test="data.webSite != null">`webSite`,</if>
+			<if test="data.unit != null">`unit`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+			<if test="data.prison_id != null">`prison_id`,</if>
+			<if test="data.source != null">`source`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.status != null">`status`,</if>
+			<if test="data.statusval != null">`statusval`,</if>
+			<if test="data.serviceagency_id != null">`serviceagency_id`,</if>
+			<if test="data.price_region != null">`price_region`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.shopping_id != null">#{data.shoppingId,jdbcType=INTEGER},</if>
+			<if test="data.name != null">#{data.name,jdbcType=VARCHAR},</if>
+			<if test="data.brief != null">#{data.brief,jdbcType=VARCHAR},</if>
+			<if test="data.description != null">#{data.description,jdbcType=VARCHAR},</if>
+			<if test="data.picture != null">#{data.picture,jdbcType=VARCHAR},</if>
+			<if test="data.retailprice != null">#{data.retailprice,jdbcType=DECIMAL},</if>
+			<if test="data.price != null">#{data.price,jdbcType=DECIMAL},</if>
+			<if test="data.skucode != null">#{data.skucode,jdbcType=VARCHAR},</if>
+			<if test="data.webSite != null">#{data.webSite,jdbcType=VARCHAR},</if>
+			<if test="data.unit != null">#{data.unit,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.prison_id != null">#{data.prisonId,jdbcType=INTEGER},</if>
+			<if test="data.source != null">#{data.source,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.status != null">#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.statusval != null">#{data.statusval,jdbcType=VARCHAR},</if>
+			<if test="data.serviceagency_id != null">#{data.serviceagencyId,jdbcType=INTEGER},</if>
+			<if test="data.price_region != null">#{data.priceRegion,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cr_shopping_setmeal
+		<set>
+			<if test="data.shopping_id != null">shopping_id=#{data.shopping_id,jdbcType=INTEGER},</if>
+			<if test="data.name != null">name=#{data.name,jdbcType=VARCHAR},</if>
+			<if test="data.brief != null">brief=#{data.brief,jdbcType=VARCHAR},</if>
+			<if test="data.description != null">description=#{data.description,jdbcType=VARCHAR},</if>
+			<if test="data.picture != null">picture=#{data.picture,jdbcType=VARCHAR},</if>
+			<if test="data.retailprice != null">retailprice=#{data.retailprice,jdbcType=DECIMAL},</if>
+			<if test="data.price != null">price=#{data.price,jdbcType=DECIMAL},</if>
+			<if test="data.skucode != null">skucode=#{data.skucode,jdbcType=VARCHAR},</if>
+			<if test="data.webSite != null">webSite=#{data.webSite,jdbcType=VARCHAR},</if>
+			<if test="data.unit != null">unit=#{data.unit,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.prison_id != null">prison_id=#{data.prison_id,jdbcType=INTEGER},</if>
+			<if test="data.source != null">source=#{data.source,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.status != null">status=#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.statusval != null">statusval=#{data.statusval,jdbcType=VARCHAR},</if>
+			<if test="data.serviceagency_id != null">serviceagency_id=#{data.serviceagency_id,jdbcType=INTEGER},</if>
+			<if test="data.price_region != null">price_region=#{data.price_region,jdbcType=VARCHAR},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cr_shopping_setmeal WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_shopping_setmeal ( `shopping_id` , `name` , `brief` , `description` , `picture` , `retailprice` , `price` , `skucode` , `webSite` , `unit` , `isdelete` , `prison_id` , `source` , `addtime` , `status` , `statusval` , `serviceagency_id` , `price_region` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.shopping_id,jdbcType=INTEGER} , #{item.name,jdbcType=VARCHAR} , #{item.brief,jdbcType=VARCHAR} , #{item.description,jdbcType=VARCHAR} , #{item.picture,jdbcType=VARCHAR} , #{item.retailprice,jdbcType=DECIMAL} , #{item.price,jdbcType=DECIMAL} , #{item.skucode,jdbcType=VARCHAR} , #{item.webSite,jdbcType=VARCHAR} , #{item.unit,jdbcType=VARCHAR} , #{item.isdelete,jdbcType=INTEGER} , #{item.prison_id,jdbcType=INTEGER} , #{item.source,jdbcType=INTEGER} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.status,jdbcType=INTEGER} , #{item.statusval,jdbcType=VARCHAR} , #{item.serviceagency_id,jdbcType=INTEGER} , #{item.price_region,jdbcType=VARCHAR} )</foreach>
+	</insert>
+</mapper>

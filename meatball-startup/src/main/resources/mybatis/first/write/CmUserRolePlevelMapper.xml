@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.write.CmUserRolePlevelWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_user_role_plevel ( `role_id` , `plevel_id` , `addtime` , `user_id` , `isdelete` ) VALUES ( #{data.role_id,jdbcType=INTEGER} , #{data.plevel_id,jdbcType=INTEGER} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.user_id,jdbcType=INTEGER} , #{data.isdelete,jdbcType=INTEGER} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_user_role_plevel
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.role_id != null">`role_id`,</if>
+			<if test="data.plevel_id != null">`plevel_id`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.user_id != null">`user_id`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.role_id != null">#{data.roleId,jdbcType=INTEGER},</if>
+			<if test="data.plevel_id != null">#{data.plevelId,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.user_id != null">#{data.userId,jdbcType=INTEGER},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_user_role_plevel
+		<set>
+			<if test="data.role_id != null">role_id=#{data.role_id,jdbcType=INTEGER},</if>
+			<if test="data.plevel_id != null">plevel_id=#{data.plevel_id,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.user_id != null">user_id=#{data.user_id,jdbcType=INTEGER},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_user_role_plevel WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_user_role_plevel ( `role_id` , `plevel_id` , `addtime` , `user_id` , `isdelete` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.role_id,jdbcType=INTEGER} , #{item.plevel_id,jdbcType=INTEGER} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.user_id,jdbcType=INTEGER} , #{item.isdelete,jdbcType=INTEGER} )</foreach>
+	</insert>
+</mapper>

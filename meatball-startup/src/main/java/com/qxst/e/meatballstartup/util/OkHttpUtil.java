@@ -386,7 +386,7 @@ public class OkHttpUtil {
 
             for (Map.Entry<String, String> item : map.entrySet()) {
                 try {
-                    newUrl.append("&" + item.getKey().trim() + "=" + URLEncoder.encode(String.valueOf(item.getValue().trim()), "UTF-8"));
+                    newUrl.append("&" + item.getKey().trim() + "=" + URLEncoder.encode(String.valueOf(item.getValue()).trim(), "UTF-8"));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.write.CmUserPlevelWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_user_plevel ( `code` , `plevel` , `menu_name` , `addtime` , `user_id` , `isdelete` , `status` , `prison_id` , `sys_type_id` , `sys_type_name` ) VALUES ( #{data.code,jdbcType=VARCHAR} , #{data.plevel,jdbcType=INTEGER} , #{data.menu_name,jdbcType=VARCHAR} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.user_id,jdbcType=INTEGER} , #{data.isdelete,jdbcType=INTEGER} , #{data.status,jdbcType=INTEGER} , #{data.prison_id,jdbcType=INTEGER} , #{data.sys_type_id,jdbcType=INTEGER} , #{data.sys_type_name,jdbcType=VARCHAR} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_user_plevel
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.code != null">`code`,</if>
+			<if test="data.plevel != null">`plevel`,</if>
+			<if test="data.menu_name != null">`menu_name`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.user_id != null">`user_id`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+			<if test="data.status != null">`status`,</if>
+			<if test="data.prison_id != null">`prison_id`,</if>
+			<if test="data.sys_type_id != null">`sys_type_id`,</if>
+			<if test="data.sys_type_name != null">`sys_type_name`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.code != null">#{data.code,jdbcType=VARCHAR},</if>
+			<if test="data.plevel != null">#{data.plevel,jdbcType=INTEGER},</if>
+			<if test="data.menu_name != null">#{data.menuName,jdbcType=VARCHAR},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.user_id != null">#{data.userId,jdbcType=INTEGER},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.status != null">#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.prison_id != null">#{data.prisonId,jdbcType=INTEGER},</if>
+			<if test="data.sys_type_id != null">#{data.sysTypeId,jdbcType=INTEGER},</if>
+			<if test="data.sys_type_name != null">#{data.sysTypeName,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_user_plevel
+		<set>
+			<if test="data.code != null">code=#{data.code,jdbcType=VARCHAR},</if>
+			<if test="data.plevel != null">plevel=#{data.plevel,jdbcType=INTEGER},</if>
+			<if test="data.menu_name != null">menu_name=#{data.menu_name,jdbcType=VARCHAR},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.user_id != null">user_id=#{data.user_id,jdbcType=INTEGER},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.status != null">status=#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.prison_id != null">prison_id=#{data.prison_id,jdbcType=INTEGER},</if>
+			<if test="data.sys_type_id != null">sys_type_id=#{data.sys_type_id,jdbcType=INTEGER},</if>
+			<if test="data.sys_type_name != null">sys_type_name=#{data.sys_type_name,jdbcType=VARCHAR},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_user_plevel WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_user_plevel ( `code` , `plevel` , `menu_name` , `addtime` , `user_id` , `isdelete` , `status` , `prison_id` , `sys_type_id` , `sys_type_name` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.code,jdbcType=VARCHAR} , #{item.plevel,jdbcType=INTEGER} , #{item.menu_name,jdbcType=VARCHAR} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.user_id,jdbcType=INTEGER} , #{item.isdelete,jdbcType=INTEGER} , #{item.status,jdbcType=INTEGER} , #{item.prison_id,jdbcType=INTEGER} , #{item.sys_type_id,jdbcType=INTEGER} , #{item.sys_type_name,jdbcType=VARCHAR} )</foreach>
+	</insert>
+</mapper>

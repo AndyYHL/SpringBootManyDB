@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.main.write.CmDeviceTypeWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_device_type ( `device_code` , `name` , `parent_id` , `typename` , `remark` , `isdelete` , `addtime` , `weight` , `picture` ) VALUES ( #{data.device_code,jdbcType=VARCHAR} , #{data.name,jdbcType=VARCHAR} , #{data.parent_id,jdbcType=VARCHAR} , #{data.typename,jdbcType=VARCHAR} , #{data.remark,jdbcType=VARCHAR} , #{data.isdelete,jdbcType=INTEGER} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.weight,jdbcType=INTEGER} , #{data.picture,jdbcType=VARCHAR} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_device_type
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.device_code != null">`device_code`,</if>
+			<if test="data.name != null">`name`,</if>
+			<if test="data.parent_id != null">`parent_id`,</if>
+			<if test="data.typename != null">`typename`,</if>
+			<if test="data.remark != null">`remark`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.weight != null">`weight`,</if>
+			<if test="data.picture != null">`picture`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.device_code != null">#{data.deviceCode,jdbcType=VARCHAR},</if>
+			<if test="data.name != null">#{data.name,jdbcType=VARCHAR},</if>
+			<if test="data.parent_id != null">#{data.parentId,jdbcType=VARCHAR},</if>
+			<if test="data.typename != null">#{data.typename,jdbcType=VARCHAR},</if>
+			<if test="data.remark != null">#{data.remark,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.weight != null">#{data.weight,jdbcType=INTEGER},</if>
+			<if test="data.picture != null">#{data.picture,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_device_type
+		<set>
+			<if test="data.device_code != null">device_code=#{data.device_code,jdbcType=VARCHAR},</if>
+			<if test="data.name != null">name=#{data.name,jdbcType=VARCHAR},</if>
+			<if test="data.parent_id != null">parent_id=#{data.parent_id,jdbcType=VARCHAR},</if>
+			<if test="data.typename != null">typename=#{data.typename,jdbcType=VARCHAR},</if>
+			<if test="data.remark != null">remark=#{data.remark,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.weight != null">weight=#{data.weight,jdbcType=INTEGER},</if>
+			<if test="data.picture != null">picture=#{data.picture,jdbcType=VARCHAR},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_device_type WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_device_type ( `device_code` , `name` , `parent_id` , `typename` , `remark` , `isdelete` , `addtime` , `weight` , `picture` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.device_code,jdbcType=VARCHAR} , #{item.name,jdbcType=VARCHAR} , #{item.parent_id,jdbcType=VARCHAR} , #{item.typename,jdbcType=VARCHAR} , #{item.remark,jdbcType=VARCHAR} , #{item.isdelete,jdbcType=INTEGER} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.weight,jdbcType=INTEGER} , #{item.picture,jdbcType=VARCHAR} )</foreach>
+	</insert>
+</mapper>

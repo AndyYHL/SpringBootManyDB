@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.main.write.SysMenuWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO sys_menu ( `text` , `sref` , `alert` , `heading` , `label` , `translate` , `ctrl` , `path` , `templateurl` , `files` , `icon` , `parentid` , `menuorder` , `status` , `addtime` , `updatetime` , `user_id` , `plevel_id` , `plevel_grade` , `code` , `isdelete` , `css` ) VALUES ( #{data.text,jdbcType=VARCHAR} , #{data.sref,jdbcType=VARCHAR} , #{data.alert,jdbcType=VARCHAR} , #{data.heading,jdbcType=VARCHAR} , #{data.label,jdbcType=VARCHAR} , #{data.translate,jdbcType=VARCHAR} , #{data.ctrl,jdbcType=VARCHAR} , #{data.path,jdbcType=VARCHAR} , #{data.templateurl,jdbcType=VARCHAR} , #{data.files,jdbcType=VARCHAR} , #{data.icon,jdbcType=VARCHAR} , #{data.parentid,jdbcType=INTEGER} , #{data.menuorder,jdbcType=INTEGER} , #{data.status,jdbcType=INTEGER} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.updatetime,jdbcType=TIMESTAMP} , #{data.user_id,jdbcType=INTEGER} , #{data.plevel_id,jdbcType=INTEGER} , #{data.plevel_grade,jdbcType=INTEGER} , #{data.code,jdbcType=VARCHAR} , #{data.isdelete,jdbcType=INTEGER} , #{data.css,jdbcType=VARCHAR} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO sys_menu
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.text != null">`text`,</if>
+			<if test="data.sref != null">`sref`,</if>
+			<if test="data.alert != null">`alert`,</if>
+			<if test="data.heading != null">`heading`,</if>
+			<if test="data.label != null">`label`,</if>
+			<if test="data.translate != null">`translate`,</if>
+			<if test="data.ctrl != null">`ctrl`,</if>
+			<if test="data.path != null">`path`,</if>
+			<if test="data.templateurl != null">`templateurl`,</if>
+			<if test="data.files != null">`files`,</if>
+			<if test="data.icon != null">`icon`,</if>
+			<if test="data.parentid != null">`parentid`,</if>
+			<if test="data.menuorder != null">`menuorder`,</if>
+			<if test="data.status != null">`status`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.updatetime != null">`updatetime`,</if>
+			<if test="data.user_id != null">`user_id`,</if>
+			<if test="data.plevel_id != null">`plevel_id`,</if>
+			<if test="data.plevel_grade != null">`plevel_grade`,</if>
+			<if test="data.code != null">`code`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+			<if test="data.css != null">`css`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.text != null">#{data.text,jdbcType=VARCHAR},</if>
+			<if test="data.sref != null">#{data.sref,jdbcType=VARCHAR},</if>
+			<if test="data.alert != null">#{data.alert,jdbcType=VARCHAR},</if>
+			<if test="data.heading != null">#{data.heading,jdbcType=VARCHAR},</if>
+			<if test="data.label != null">#{data.label,jdbcType=VARCHAR},</if>
+			<if test="data.translate != null">#{data.translate,jdbcType=VARCHAR},</if>
+			<if test="data.ctrl != null">#{data.ctrl,jdbcType=VARCHAR},</if>
+			<if test="data.path != null">#{data.path,jdbcType=VARCHAR},</if>
+			<if test="data.templateurl != null">#{data.templateurl,jdbcType=VARCHAR},</if>
+			<if test="data.files != null">#{data.files,jdbcType=VARCHAR},</if>
+			<if test="data.icon != null">#{data.icon,jdbcType=VARCHAR},</if>
+			<if test="data.parentid != null">#{data.parentid,jdbcType=INTEGER},</if>
+			<if test="data.menuorder != null">#{data.menuorder,jdbcType=INTEGER},</if>
+			<if test="data.status != null">#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.updatetime != null">#{data.updatetime,jdbcType=TIMESTAMP},</if>
+			<if test="data.user_id != null">#{data.userId,jdbcType=INTEGER},</if>
+			<if test="data.plevel_id != null">#{data.plevelId,jdbcType=INTEGER},</if>
+			<if test="data.plevel_grade != null">#{data.plevelGrade,jdbcType=INTEGER},</if>
+			<if test="data.code != null">#{data.code,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.css != null">#{data.css,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE sys_menu
+		<set>
+			<if test="data.text != null">text=#{data.text,jdbcType=VARCHAR},</if>
+			<if test="data.sref != null">sref=#{data.sref,jdbcType=VARCHAR},</if>
+			<if test="data.alert != null">alert=#{data.alert,jdbcType=VARCHAR},</if>
+			<if test="data.heading != null">heading=#{data.heading,jdbcType=VARCHAR},</if>
+			<if test="data.label != null">label=#{data.label,jdbcType=VARCHAR},</if>
+			<if test="data.translate != null">translate=#{data.translate,jdbcType=VARCHAR},</if>
+			<if test="data.ctrl != null">ctrl=#{data.ctrl,jdbcType=VARCHAR},</if>
+			<if test="data.path != null">path=#{data.path,jdbcType=VARCHAR},</if>
+			<if test="data.templateurl != null">templateurl=#{data.templateurl,jdbcType=VARCHAR},</if>
+			<if test="data.files != null">files=#{data.files,jdbcType=VARCHAR},</if>
+			<if test="data.icon != null">icon=#{data.icon,jdbcType=VARCHAR},</if>
+			<if test="data.parentid != null">parentid=#{data.parentid,jdbcType=INTEGER},</if>
+			<if test="data.menuorder != null">menuorder=#{data.menuorder,jdbcType=INTEGER},</if>
+			<if test="data.status != null">status=#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.updatetime != null">updatetime=#{data.updatetime,jdbcType=TIMESTAMP},</if>
+			<if test="data.user_id != null">user_id=#{data.user_id,jdbcType=INTEGER},</if>
+			<if test="data.plevel_id != null">plevel_id=#{data.plevel_id,jdbcType=INTEGER},</if>
+			<if test="data.plevel_grade != null">plevel_grade=#{data.plevel_grade,jdbcType=INTEGER},</if>
+			<if test="data.code != null">code=#{data.code,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.css != null">css=#{data.css,jdbcType=VARCHAR},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM sys_menu WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO sys_menu ( `text` , `sref` , `alert` , `heading` , `label` , `translate` , `ctrl` , `path` , `templateurl` , `files` , `icon` , `parentid` , `menuorder` , `status` , `addtime` , `updatetime` , `user_id` , `plevel_id` , `plevel_grade` , `code` , `isdelete` , `css` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.text,jdbcType=VARCHAR} , #{item.sref,jdbcType=VARCHAR} , #{item.alert,jdbcType=VARCHAR} , #{item.heading,jdbcType=VARCHAR} , #{item.label,jdbcType=VARCHAR} , #{item.translate,jdbcType=VARCHAR} , #{item.ctrl,jdbcType=VARCHAR} , #{item.path,jdbcType=VARCHAR} , #{item.templateurl,jdbcType=VARCHAR} , #{item.files,jdbcType=VARCHAR} , #{item.icon,jdbcType=VARCHAR} , #{item.parentid,jdbcType=INTEGER} , #{item.menuorder,jdbcType=INTEGER} , #{item.status,jdbcType=INTEGER} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.updatetime,jdbcType=TIMESTAMP} , #{item.user_id,jdbcType=INTEGER} , #{item.plevel_id,jdbcType=INTEGER} , #{item.plevel_grade,jdbcType=INTEGER} , #{item.code,jdbcType=VARCHAR} , #{item.isdelete,jdbcType=INTEGER} , #{item.css,jdbcType=VARCHAR} )</foreach>
+	</insert>
+</mapper>

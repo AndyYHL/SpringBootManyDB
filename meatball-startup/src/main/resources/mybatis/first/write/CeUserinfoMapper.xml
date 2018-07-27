@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.write.CeUserinfoWriteDao">
+	<insert id="save" parameterType="map" keyProperty="userinfoId" keyColumn="userinfo_id" useGeneratedKeys="true">INSERT INTO ce_userinfo ( `sex` , `birthday` , `score` , `loginnum` , `codetype` , `code` , `email` , `qq` , `now_province_id` , `now_ctity_id` , `now_country_id` , `address` , `invite_code` , `zip` ) VALUES ( #{data.sex,jdbcType=VARCHAR} , #{data.birthday,jdbcType=TIMESTAMP} , #{data.score,jdbcType=DECIMAL} , #{data.loginnum,jdbcType=INTEGER} , #{data.codetype,jdbcType=INTEGER} , #{data.code,jdbcType=VARCHAR} , #{data.email,jdbcType=VARCHAR} , #{data.qq,jdbcType=VARCHAR} , #{data.now_province_id,jdbcType=INTEGER} , #{data.now_ctity_id,jdbcType=INTEGER} , #{data.now_country_id,jdbcType=INTEGER} , #{data.address,jdbcType=VARCHAR} , #{data.invite_code,jdbcType=VARCHAR} , #{data.zip,jdbcType=VARCHAR} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="userinfoId" keyColumn="userinfo_id" useGeneratedKeys="true">INSERT INTO ce_userinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.sex != null">`sex`,</if>
+			<if test="data.birthday != null">`birthday`,</if>
+			<if test="data.score != null">`score`,</if>
+			<if test="data.loginnum != null">`loginnum`,</if>
+			<if test="data.codetype != null">`codetype`,</if>
+			<if test="data.code != null">`code`,</if>
+			<if test="data.email != null">`email`,</if>
+			<if test="data.qq != null">`qq`,</if>
+			<if test="data.now_province_id != null">`now_province_id`,</if>
+			<if test="data.now_ctity_id != null">`now_ctity_id`,</if>
+			<if test="data.now_country_id != null">`now_country_id`,</if>
+			<if test="data.address != null">`address`,</if>
+			<if test="data.invite_code != null">`invite_code`,</if>
+			<if test="data.zip != null">`zip`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.sex != null">#{data.sex,jdbcType=VARCHAR},</if>
+			<if test="data.birthday != null">#{data.birthday,jdbcType=TIMESTAMP},</if>
+			<if test="data.score != null">#{data.score,jdbcType=DECIMAL},</if>
+			<if test="data.loginnum != null">#{data.loginnum,jdbcType=INTEGER},</if>
+			<if test="data.codetype != null">#{data.codetype,jdbcType=INTEGER},</if>
+			<if test="data.code != null">#{data.code,jdbcType=VARCHAR},</if>
+			<if test="data.email != null">#{data.email,jdbcType=VARCHAR},</if>
+			<if test="data.qq != null">#{data.qq,jdbcType=VARCHAR},</if>
+			<if test="data.now_province_id != null">#{data.nowProvinceId,jdbcType=INTEGER},</if>
+			<if test="data.now_ctity_id != null">#{data.nowCtityId,jdbcType=INTEGER},</if>
+			<if test="data.now_country_id != null">#{data.nowCountryId,jdbcType=INTEGER},</if>
+			<if test="data.address != null">#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.invite_code != null">#{data.inviteCode,jdbcType=VARCHAR},</if>
+			<if test="data.zip != null">#{data.zip,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE ce_userinfo
+		<set>
+			<if test="data.sex != null">sex=#{data.sex,jdbcType=VARCHAR},</if>
+			<if test="data.birthday != null">birthday=#{data.birthday,jdbcType=TIMESTAMP},</if>
+			<if test="data.score != null">score=#{data.score,jdbcType=DECIMAL},</if>
+			<if test="data.loginnum != null">loginnum=#{data.loginnum,jdbcType=INTEGER},</if>
+			<if test="data.codetype != null">codetype=#{data.codetype,jdbcType=INTEGER},</if>
+			<if test="data.code != null">code=#{data.code,jdbcType=VARCHAR},</if>
+			<if test="data.email != null">email=#{data.email,jdbcType=VARCHAR},</if>
+			<if test="data.qq != null">qq=#{data.qq,jdbcType=VARCHAR},</if>
+			<if test="data.now_province_id != null">now_province_id=#{data.now_province_id,jdbcType=INTEGER},</if>
+			<if test="data.now_ctity_id != null">now_ctity_id=#{data.now_ctity_id,jdbcType=INTEGER},</if>
+			<if test="data.now_country_id != null">now_country_id=#{data.now_country_id,jdbcType=INTEGER},</if>
+			<if test="data.address != null">address=#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.invite_code != null">invite_code=#{data.invite_code,jdbcType=VARCHAR},</if>
+			<if test="data.zip != null">zip=#{data.zip,jdbcType=VARCHAR},</if>
+		</set> WHERE userinfo_id = #{data.userinfoId,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM ce_userinfo WHERE userinfo_id = #{data.userinfoId,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="userinfoId" keyColumn="userinfo_id" useGeneratedKeys="true">INSERT INTO ce_userinfo ( `sex` , `birthday` , `score` , `loginnum` , `codetype` , `code` , `email` , `qq` , `now_province_id` , `now_ctity_id` , `now_country_id` , `address` , `invite_code` , `zip` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.sex,jdbcType=VARCHAR} , #{item.birthday,jdbcType=TIMESTAMP} , #{item.score,jdbcType=DECIMAL} , #{item.loginnum,jdbcType=INTEGER} , #{item.codetype,jdbcType=INTEGER} , #{item.code,jdbcType=VARCHAR} , #{item.email,jdbcType=VARCHAR} , #{item.qq,jdbcType=VARCHAR} , #{item.now_province_id,jdbcType=INTEGER} , #{item.now_ctity_id,jdbcType=INTEGER} , #{item.now_country_id,jdbcType=INTEGER} , #{item.address,jdbcType=VARCHAR} , #{item.invite_code,jdbcType=VARCHAR} , #{item.zip,jdbcType=VARCHAR} )</foreach>
+	</insert>
+</mapper>

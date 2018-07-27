@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.second.write.CrOrdersgWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_ordersg ( `order_id` , `serviceagency_id` , `service_time` , `isdelete` , `user_id` , `status` , `issend` , `addtime` , `send_time` ) VALUES ( #{data.order_id,jdbcType=INTEGER} , #{data.serviceagency_id,jdbcType=INTEGER} , #{data.service_time,jdbcType=TIMESTAMP} , #{data.isdelete,jdbcType=INTEGER} , #{data.user_id,jdbcType=INTEGER} , #{data.status,jdbcType=INTEGER} , #{data.issend,jdbcType=INTEGER} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.send_time,jdbcType=TIMESTAMP} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_ordersg
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.order_id != null">`order_id`,</if>
+			<if test="data.serviceagency_id != null">`serviceagency_id`,</if>
+			<if test="data.service_time != null">`service_time`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+			<if test="data.user_id != null">`user_id`,</if>
+			<if test="data.status != null">`status`,</if>
+			<if test="data.issend != null">`issend`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.send_time != null">`send_time`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.order_id != null">#{data.orderId,jdbcType=INTEGER},</if>
+			<if test="data.serviceagency_id != null">#{data.serviceagencyId,jdbcType=INTEGER},</if>
+			<if test="data.service_time != null">#{data.serviceTime,jdbcType=TIMESTAMP},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.user_id != null">#{data.userId,jdbcType=INTEGER},</if>
+			<if test="data.status != null">#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.issend != null">#{data.issend,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.send_time != null">#{data.sendTime,jdbcType=TIMESTAMP},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cr_ordersg
+		<set>
+			<if test="data.order_id != null">order_id=#{data.order_id,jdbcType=INTEGER},</if>
+			<if test="data.serviceagency_id != null">serviceagency_id=#{data.serviceagency_id,jdbcType=INTEGER},</if>
+			<if test="data.service_time != null">service_time=#{data.service_time,jdbcType=TIMESTAMP},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.user_id != null">user_id=#{data.user_id,jdbcType=INTEGER},</if>
+			<if test="data.status != null">status=#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.issend != null">issend=#{data.issend,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.send_time != null">send_time=#{data.send_time,jdbcType=TIMESTAMP},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cr_ordersg WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_ordersg ( `order_id` , `serviceagency_id` , `service_time` , `isdelete` , `user_id` , `status` , `issend` , `addtime` , `send_time` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.order_id,jdbcType=INTEGER} , #{item.serviceagency_id,jdbcType=INTEGER} , #{item.service_time,jdbcType=TIMESTAMP} , #{item.isdelete,jdbcType=INTEGER} , #{item.user_id,jdbcType=INTEGER} , #{item.status,jdbcType=INTEGER} , #{item.issend,jdbcType=INTEGER} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.send_time,jdbcType=TIMESTAMP} )</foreach>
+	</insert>
+</mapper>

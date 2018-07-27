@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.write.CmDeviceWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_device ( `enterprise_id` , `device_code` , `name` , `address` , `lot` , `lat` , `port` , `product_name` , `product_code` , `product_model` , `product_type` , `product_pic` , `sys` , `s_sys` , `maxstroke` , `worksize` , `power` , `variator` , `motor` , `spec` , `accuracy` , `srange` , `speed` , `cooling` , `splitter` , `now_province_id` , `now_ctity_id` , `now_county_id` , `addtime` , `origin` , `countries` , `isdelate` , `partner_id` , `isshare` ) VALUES ( #{data.enterprise_id,jdbcType=INTEGER} , #{data.device_code,jdbcType=VARCHAR} , #{data.name,jdbcType=VARCHAR} , #{data.address,jdbcType=VARCHAR} , #{data.lot,jdbcType=VARCHAR} , #{data.lat,jdbcType=VARCHAR} , #{data.port,jdbcType=VARCHAR} , #{data.product_name,jdbcType=VARCHAR} , #{data.product_code,jdbcType=VARCHAR} , #{data.product_model,jdbcType=VARCHAR} , #{data.product_type,jdbcType=VARCHAR} , #{data.product_pic,jdbcType=VARCHAR} , #{data.sys,jdbcType=VARCHAR} , #{data.s_sys,jdbcType=VARCHAR} , #{data.maxstroke,jdbcType=VARCHAR} , #{data.worksize,jdbcType=VARCHAR} , #{data.power,jdbcType=VARCHAR} , #{data.variator,jdbcType=VARCHAR} , #{data.motor,jdbcType=VARCHAR} , #{data.spec,jdbcType=VARCHAR} , #{data.accuracy,jdbcType=VARCHAR} , #{data.srange,jdbcType=VARCHAR} , #{data.speed,jdbcType=VARCHAR} , #{data.cooling,jdbcType=VARCHAR} , #{data.splitter,jdbcType=VARCHAR} , #{data.now_province_id,jdbcType=INTEGER} , #{data.now_ctity_id,jdbcType=INTEGER} , #{data.now_county_id,jdbcType=INTEGER} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.origin,jdbcType=VARCHAR} , #{data.countries,jdbcType=VARCHAR} , #{data.isdelate,jdbcType=INTEGER} , #{data.partner_id,jdbcType=INTEGER} , #{data.isshare,jdbcType=INTEGER} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_device
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.enterprise_id != null">`enterprise_id`,</if>
+			<if test="data.device_code != null">`device_code`,</if>
+			<if test="data.name != null">`name`,</if>
+			<if test="data.address != null">`address`,</if>
+			<if test="data.lot != null">`lot`,</if>
+			<if test="data.lat != null">`lat`,</if>
+			<if test="data.port != null">`port`,</if>
+			<if test="data.product_name != null">`product_name`,</if>
+			<if test="data.product_code != null">`product_code`,</if>
+			<if test="data.product_model != null">`product_model`,</if>
+			<if test="data.product_type != null">`product_type`,</if>
+			<if test="data.product_pic != null">`product_pic`,</if>
+			<if test="data.sys != null">`sys`,</if>
+			<if test="data.s_sys != null">`s_sys`,</if>
+			<if test="data.maxstroke != null">`maxstroke`,</if>
+			<if test="data.worksize != null">`worksize`,</if>
+			<if test="data.power != null">`power`,</if>
+			<if test="data.variator != null">`variator`,</if>
+			<if test="data.motor != null">`motor`,</if>
+			<if test="data.spec != null">`spec`,</if>
+			<if test="data.accuracy != null">`accuracy`,</if>
+			<if test="data.srange != null">`srange`,</if>
+			<if test="data.speed != null">`speed`,</if>
+			<if test="data.cooling != null">`cooling`,</if>
+			<if test="data.splitter != null">`splitter`,</if>
+			<if test="data.now_province_id != null">`now_province_id`,</if>
+			<if test="data.now_ctity_id != null">`now_ctity_id`,</if>
+			<if test="data.now_county_id != null">`now_county_id`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.origin != null">`origin`,</if>
+			<if test="data.countries != null">`countries`,</if>
+			<if test="data.isdelate != null">`isdelate`,</if>
+			<if test="data.partner_id != null">`partner_id`,</if>
+			<if test="data.isshare != null">`isshare`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.enterprise_id != null">#{data.enterpriseId,jdbcType=INTEGER},</if>
+			<if test="data.device_code != null">#{data.deviceCode,jdbcType=VARCHAR},</if>
+			<if test="data.name != null">#{data.name,jdbcType=VARCHAR},</if>
+			<if test="data.address != null">#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.lot != null">#{data.lot,jdbcType=VARCHAR},</if>
+			<if test="data.lat != null">#{data.lat,jdbcType=VARCHAR},</if>
+			<if test="data.port != null">#{data.port,jdbcType=VARCHAR},</if>
+			<if test="data.product_name != null">#{data.productName,jdbcType=VARCHAR},</if>
+			<if test="data.product_code != null">#{data.productCode,jdbcType=VARCHAR},</if>
+			<if test="data.product_model != null">#{data.productModel,jdbcType=VARCHAR},</if>
+			<if test="data.product_type != null">#{data.productType,jdbcType=VARCHAR},</if>
+			<if test="data.product_pic != null">#{data.productPic,jdbcType=VARCHAR},</if>
+			<if test="data.sys != null">#{data.sys,jdbcType=VARCHAR},</if>
+			<if test="data.s_sys != null">#{data.sSys,jdbcType=VARCHAR},</if>
+			<if test="data.maxstroke != null">#{data.maxstroke,jdbcType=VARCHAR},</if>
+			<if test="data.worksize != null">#{data.worksize,jdbcType=VARCHAR},</if>
+			<if test="data.power != null">#{data.power,jdbcType=VARCHAR},</if>
+			<if test="data.variator != null">#{data.variator,jdbcType=VARCHAR},</if>
+			<if test="data.motor != null">#{data.motor,jdbcType=VARCHAR},</if>
+			<if test="data.spec != null">#{data.spec,jdbcType=VARCHAR},</if>
+			<if test="data.accuracy != null">#{data.accuracy,jdbcType=VARCHAR},</if>
+			<if test="data.srange != null">#{data.srange,jdbcType=VARCHAR},</if>
+			<if test="data.speed != null">#{data.speed,jdbcType=VARCHAR},</if>
+			<if test="data.cooling != null">#{data.cooling,jdbcType=VARCHAR},</if>
+			<if test="data.splitter != null">#{data.splitter,jdbcType=VARCHAR},</if>
+			<if test="data.now_province_id != null">#{data.nowProvinceId,jdbcType=INTEGER},</if>
+			<if test="data.now_ctity_id != null">#{data.nowCtityId,jdbcType=INTEGER},</if>
+			<if test="data.now_county_id != null">#{data.nowCountyId,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.origin != null">#{data.origin,jdbcType=VARCHAR},</if>
+			<if test="data.countries != null">#{data.countries,jdbcType=VARCHAR},</if>
+			<if test="data.isdelate != null">#{data.isdelate,jdbcType=INTEGER},</if>
+			<if test="data.partner_id != null">#{data.partnerId,jdbcType=INTEGER},</if>
+			<if test="data.isshare != null">#{data.isshare,jdbcType=INTEGER},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_device
+		<set>
+			<if test="data.enterprise_id != null">enterprise_id=#{data.enterprise_id,jdbcType=INTEGER},</if>
+			<if test="data.device_code != null">device_code=#{data.device_code,jdbcType=VARCHAR},</if>
+			<if test="data.name != null">name=#{data.name,jdbcType=VARCHAR},</if>
+			<if test="data.address != null">address=#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.lot != null">lot=#{data.lot,jdbcType=VARCHAR},</if>
+			<if test="data.lat != null">lat=#{data.lat,jdbcType=VARCHAR},</if>
+			<if test="data.port != null">port=#{data.port,jdbcType=VARCHAR},</if>
+			<if test="data.product_name != null">product_name=#{data.product_name,jdbcType=VARCHAR},</if>
+			<if test="data.product_code != null">product_code=#{data.product_code,jdbcType=VARCHAR},</if>
+			<if test="data.product_model != null">product_model=#{data.product_model,jdbcType=VARCHAR},</if>
+			<if test="data.product_type != null">product_type=#{data.product_type,jdbcType=VARCHAR},</if>
+			<if test="data.product_pic != null">product_pic=#{data.product_pic,jdbcType=VARCHAR},</if>
+			<if test="data.sys != null">sys=#{data.sys,jdbcType=VARCHAR},</if>
+			<if test="data.s_sys != null">s_sys=#{data.s_sys,jdbcType=VARCHAR},</if>
+			<if test="data.maxstroke != null">maxstroke=#{data.maxstroke,jdbcType=VARCHAR},</if>
+			<if test="data.worksize != null">worksize=#{data.worksize,jdbcType=VARCHAR},</if>
+			<if test="data.power != null">power=#{data.power,jdbcType=VARCHAR},</if>
+			<if test="data.variator != null">variator=#{data.variator,jdbcType=VARCHAR},</if>
+			<if test="data.motor != null">motor=#{data.motor,jdbcType=VARCHAR},</if>
+			<if test="data.spec != null">spec=#{data.spec,jdbcType=VARCHAR},</if>
+			<if test="data.accuracy != null">accuracy=#{data.accuracy,jdbcType=VARCHAR},</if>
+			<if test="data.srange != null">srange=#{data.srange,jdbcType=VARCHAR},</if>
+			<if test="data.speed != null">speed=#{data.speed,jdbcType=VARCHAR},</if>
+			<if test="data.cooling != null">cooling=#{data.cooling,jdbcType=VARCHAR},</if>
+			<if test="data.splitter != null">splitter=#{data.splitter,jdbcType=VARCHAR},</if>
+			<if test="data.now_province_id != null">now_province_id=#{data.now_province_id,jdbcType=INTEGER},</if>
+			<if test="data.now_ctity_id != null">now_ctity_id=#{data.now_ctity_id,jdbcType=INTEGER},</if>
+			<if test="data.now_county_id != null">now_county_id=#{data.now_county_id,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.origin != null">origin=#{data.origin,jdbcType=VARCHAR},</if>
+			<if test="data.countries != null">countries=#{data.countries,jdbcType=VARCHAR},</if>
+			<if test="data.isdelate != null">isdelate=#{data.isdelate,jdbcType=INTEGER},</if>
+			<if test="data.partner_id != null">partner_id=#{data.partner_id,jdbcType=INTEGER},</if>
+			<if test="data.isshare != null">isshare=#{data.isshare,jdbcType=INTEGER},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_device WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_device ( `enterprise_id` , `device_code` , `name` , `address` , `lot` , `lat` , `port` , `product_name` , `product_code` , `product_model` , `product_type` , `product_pic` , `sys` , `s_sys` , `maxstroke` , `worksize` , `power` , `variator` , `motor` , `spec` , `accuracy` , `srange` , `speed` , `cooling` , `splitter` , `now_province_id` , `now_ctity_id` , `now_county_id` , `addtime` , `origin` , `countries` , `isdelate` , `partner_id` , `isshare` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.enterprise_id,jdbcType=INTEGER} , #{item.device_code,jdbcType=VARCHAR} , #{item.name,jdbcType=VARCHAR} , #{item.address,jdbcType=VARCHAR} , #{item.lot,jdbcType=VARCHAR} , #{item.lat,jdbcType=VARCHAR} , #{item.port,jdbcType=VARCHAR} , #{item.product_name,jdbcType=VARCHAR} , #{item.product_code,jdbcType=VARCHAR} , #{item.product_model,jdbcType=VARCHAR} , #{item.product_type,jdbcType=VARCHAR} , #{item.product_pic,jdbcType=VARCHAR} , #{item.sys,jdbcType=VARCHAR} , #{item.s_sys,jdbcType=VARCHAR} , #{item.maxstroke,jdbcType=VARCHAR} , #{item.worksize,jdbcType=VARCHAR} , #{item.power,jdbcType=VARCHAR} , #{item.variator,jdbcType=VARCHAR} , #{item.motor,jdbcType=VARCHAR} , #{item.spec,jdbcType=VARCHAR} , #{item.accuracy,jdbcType=VARCHAR} , #{item.srange,jdbcType=VARCHAR} , #{item.speed,jdbcType=VARCHAR} , #{item.cooling,jdbcType=VARCHAR} , #{item.splitter,jdbcType=VARCHAR} , #{item.now_province_id,jdbcType=INTEGER} , #{item.now_ctity_id,jdbcType=INTEGER} , #{item.now_county_id,jdbcType=INTEGER} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.origin,jdbcType=VARCHAR} , #{item.countries,jdbcType=VARCHAR} , #{item.isdelate,jdbcType=INTEGER} , #{item.partner_id,jdbcType=INTEGER} , #{item.isshare,jdbcType=INTEGER} )</foreach>
+	</insert>
+</mapper>

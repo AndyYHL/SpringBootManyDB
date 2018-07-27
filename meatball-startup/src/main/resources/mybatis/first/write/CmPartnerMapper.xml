@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.write.CmPartnerWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_partner ( `name` , `username` , `phone` , `address` , `company` , `sys_type_id` , `license` , `email` , `contract` , `flowdivide` , `devicedivide` , `operationdivide` , `partsdivide` , `workersdivide` , `techniciandivide` , `designerdivide` , `isdelete` , `addtime` , `status` ) VALUES ( #{data.name,jdbcType=VARCHAR} , #{data.username,jdbcType=VARCHAR} , #{data.phone,jdbcType=VARCHAR} , #{data.address,jdbcType=VARCHAR} , #{data.company,jdbcType=VARCHAR} , #{data.sys_type_id,jdbcType=INTEGER} , #{data.license,jdbcType=VARCHAR} , #{data.email,jdbcType=VARCHAR} , #{data.contract,jdbcType=VARCHAR} , #{data.flowdivide,jdbcType=VARCHAR} , #{data.devicedivide,jdbcType=VARCHAR} , #{data.operationdivide,jdbcType=VARCHAR} , #{data.partsdivide,jdbcType=VARCHAR} , #{data.workersdivide,jdbcType=VARCHAR} , #{data.techniciandivide,jdbcType=VARCHAR} , #{data.designerdivide,jdbcType=VARCHAR} , #{data.isdelete,jdbcType=INTEGER} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.status,jdbcType=INTEGER} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_partner
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.name != null">`name`,</if>
+			<if test="data.username != null">`username`,</if>
+			<if test="data.phone != null">`phone`,</if>
+			<if test="data.address != null">`address`,</if>
+			<if test="data.company != null">`company`,</if>
+			<if test="data.sys_type_id != null">`sys_type_id`,</if>
+			<if test="data.license != null">`license`,</if>
+			<if test="data.email != null">`email`,</if>
+			<if test="data.contract != null">`contract`,</if>
+			<if test="data.flowdivide != null">`flowdivide`,</if>
+			<if test="data.devicedivide != null">`devicedivide`,</if>
+			<if test="data.operationdivide != null">`operationdivide`,</if>
+			<if test="data.partsdivide != null">`partsdivide`,</if>
+			<if test="data.workersdivide != null">`workersdivide`,</if>
+			<if test="data.techniciandivide != null">`techniciandivide`,</if>
+			<if test="data.designerdivide != null">`designerdivide`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.status != null">`status`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.name != null">#{data.name,jdbcType=VARCHAR},</if>
+			<if test="data.username != null">#{data.username,jdbcType=VARCHAR},</if>
+			<if test="data.phone != null">#{data.phone,jdbcType=VARCHAR},</if>
+			<if test="data.address != null">#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.company != null">#{data.company,jdbcType=VARCHAR},</if>
+			<if test="data.sys_type_id != null">#{data.sysTypeId,jdbcType=INTEGER},</if>
+			<if test="data.license != null">#{data.license,jdbcType=VARCHAR},</if>
+			<if test="data.email != null">#{data.email,jdbcType=VARCHAR},</if>
+			<if test="data.contract != null">#{data.contract,jdbcType=VARCHAR},</if>
+			<if test="data.flowdivide != null">#{data.flowdivide,jdbcType=VARCHAR},</if>
+			<if test="data.devicedivide != null">#{data.devicedivide,jdbcType=VARCHAR},</if>
+			<if test="data.operationdivide != null">#{data.operationdivide,jdbcType=VARCHAR},</if>
+			<if test="data.partsdivide != null">#{data.partsdivide,jdbcType=VARCHAR},</if>
+			<if test="data.workersdivide != null">#{data.workersdivide,jdbcType=VARCHAR},</if>
+			<if test="data.techniciandivide != null">#{data.techniciandivide,jdbcType=VARCHAR},</if>
+			<if test="data.designerdivide != null">#{data.designerdivide,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.status != null">#{data.status,jdbcType=INTEGER},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_partner
+		<set>
+			<if test="data.name != null">name=#{data.name,jdbcType=VARCHAR},</if>
+			<if test="data.username != null">username=#{data.username,jdbcType=VARCHAR},</if>
+			<if test="data.phone != null">phone=#{data.phone,jdbcType=VARCHAR},</if>
+			<if test="data.address != null">address=#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.company != null">company=#{data.company,jdbcType=VARCHAR},</if>
+			<if test="data.sys_type_id != null">sys_type_id=#{data.sys_type_id,jdbcType=INTEGER},</if>
+			<if test="data.license != null">license=#{data.license,jdbcType=VARCHAR},</if>
+			<if test="data.email != null">email=#{data.email,jdbcType=VARCHAR},</if>
+			<if test="data.contract != null">contract=#{data.contract,jdbcType=VARCHAR},</if>
+			<if test="data.flowdivide != null">flowdivide=#{data.flowdivide,jdbcType=VARCHAR},</if>
+			<if test="data.devicedivide != null">devicedivide=#{data.devicedivide,jdbcType=VARCHAR},</if>
+			<if test="data.operationdivide != null">operationdivide=#{data.operationdivide,jdbcType=VARCHAR},</if>
+			<if test="data.partsdivide != null">partsdivide=#{data.partsdivide,jdbcType=VARCHAR},</if>
+			<if test="data.workersdivide != null">workersdivide=#{data.workersdivide,jdbcType=VARCHAR},</if>
+			<if test="data.techniciandivide != null">techniciandivide=#{data.techniciandivide,jdbcType=VARCHAR},</if>
+			<if test="data.designerdivide != null">designerdivide=#{data.designerdivide,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.status != null">status=#{data.status,jdbcType=INTEGER},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_partner WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_partner ( `name` , `username` , `phone` , `address` , `company` , `sys_type_id` , `license` , `email` , `contract` , `flowdivide` , `devicedivide` , `operationdivide` , `partsdivide` , `workersdivide` , `techniciandivide` , `designerdivide` , `isdelete` , `addtime` , `status` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.name,jdbcType=VARCHAR} , #{item.username,jdbcType=VARCHAR} , #{item.phone,jdbcType=VARCHAR} , #{item.address,jdbcType=VARCHAR} , #{item.company,jdbcType=VARCHAR} , #{item.sys_type_id,jdbcType=INTEGER} , #{item.license,jdbcType=VARCHAR} , #{item.email,jdbcType=VARCHAR} , #{item.contract,jdbcType=VARCHAR} , #{item.flowdivide,jdbcType=VARCHAR} , #{item.devicedivide,jdbcType=VARCHAR} , #{item.operationdivide,jdbcType=VARCHAR} , #{item.partsdivide,jdbcType=VARCHAR} , #{item.workersdivide,jdbcType=VARCHAR} , #{item.techniciandivide,jdbcType=VARCHAR} , #{item.designerdivide,jdbcType=VARCHAR} , #{item.isdelete,jdbcType=INTEGER} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.status,jdbcType=INTEGER} )</foreach>
+	</insert>
+</mapper>

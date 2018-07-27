@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.second.write.CmServiceagencyWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_serviceagency ( `org_id` , `org_property` , `org_code` , `org_name` , `person` , `register_type` , `area_county` , `linkman` , `tel` , `fax` , `mail` , `website` , `address` , `postcode` , `industry_code` , `main_remark` , `share_type` , `opend_time` , `register_asset` , `qualfcation` , `remark` , `personnel` , `photo` , `org_grade` , `isdelete` , `prison_id` , `source` , `addtime` , `status` , `user_id` , `order_uri` ) VALUES ( #{data.org_id,jdbcType=INTEGER} , #{data.org_property,jdbcType=VARCHAR} , #{data.org_code,jdbcType=VARCHAR} , #{data.org_name,jdbcType=VARCHAR} , #{data.person,jdbcType=VARCHAR} , #{data.register_type,jdbcType=INTEGER} , #{data.area_county,jdbcType=INTEGER} , #{data.linkman,jdbcType=VARCHAR} , #{data.tel,jdbcType=VARCHAR} , #{data.fax,jdbcType=VARCHAR} , #{data.mail,jdbcType=VARCHAR} , #{data.website,jdbcType=VARCHAR} , #{data.address,jdbcType=VARCHAR} , #{data.postcode,jdbcType=VARCHAR} , #{data.industry_code,jdbcType=VARCHAR} , #{data.main_remark,jdbcType=VARCHAR} , #{data.share_type,jdbcType=INTEGER} , #{data.opend_time,jdbcType=TIMESTAMP} , #{data.register_asset,jdbcType=VARCHAR} , #{data.qualfcation,jdbcType=VARCHAR} , #{data.remark,jdbcType=VARCHAR} , #{data.personnel,jdbcType=VARCHAR} , #{data.photo,jdbcType=VARCHAR} , #{data.org_grade,jdbcType=VARCHAR} , #{data.isdelete,jdbcType=INTEGER} , #{data.prison_id,jdbcType=INTEGER} , #{data.source,jdbcType=INTEGER} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.status,jdbcType=INTEGER} , #{data.user_id,jdbcType=INTEGER} , #{data.order_uri,jdbcType=VARCHAR} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_serviceagency
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.org_id != null">`org_id`,</if>
+			<if test="data.org_property != null">`org_property`,</if>
+			<if test="data.org_code != null">`org_code`,</if>
+			<if test="data.org_name != null">`org_name`,</if>
+			<if test="data.person != null">`person`,</if>
+			<if test="data.register_type != null">`register_type`,</if>
+			<if test="data.area_county != null">`area_county`,</if>
+			<if test="data.linkman != null">`linkman`,</if>
+			<if test="data.tel != null">`tel`,</if>
+			<if test="data.fax != null">`fax`,</if>
+			<if test="data.mail != null">`mail`,</if>
+			<if test="data.website != null">`website`,</if>
+			<if test="data.address != null">`address`,</if>
+			<if test="data.postcode != null">`postcode`,</if>
+			<if test="data.industry_code != null">`industry_code`,</if>
+			<if test="data.main_remark != null">`main_remark`,</if>
+			<if test="data.share_type != null">`share_type`,</if>
+			<if test="data.opend_time != null">`opend_time`,</if>
+			<if test="data.register_asset != null">`register_asset`,</if>
+			<if test="data.qualfcation != null">`qualfcation`,</if>
+			<if test="data.remark != null">`remark`,</if>
+			<if test="data.personnel != null">`personnel`,</if>
+			<if test="data.photo != null">`photo`,</if>
+			<if test="data.org_grade != null">`org_grade`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+			<if test="data.prison_id != null">`prison_id`,</if>
+			<if test="data.source != null">`source`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.status != null">`status`,</if>
+			<if test="data.user_id != null">`user_id`,</if>
+			<if test="data.order_uri != null">`order_uri`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.org_id != null">#{data.orgId,jdbcType=INTEGER},</if>
+			<if test="data.org_property != null">#{data.orgProperty,jdbcType=VARCHAR},</if>
+			<if test="data.org_code != null">#{data.orgCode,jdbcType=VARCHAR},</if>
+			<if test="data.org_name != null">#{data.orgName,jdbcType=VARCHAR},</if>
+			<if test="data.person != null">#{data.person,jdbcType=VARCHAR},</if>
+			<if test="data.register_type != null">#{data.registerType,jdbcType=INTEGER},</if>
+			<if test="data.area_county != null">#{data.areaCounty,jdbcType=INTEGER},</if>
+			<if test="data.linkman != null">#{data.linkman,jdbcType=VARCHAR},</if>
+			<if test="data.tel != null">#{data.tel,jdbcType=VARCHAR},</if>
+			<if test="data.fax != null">#{data.fax,jdbcType=VARCHAR},</if>
+			<if test="data.mail != null">#{data.mail,jdbcType=VARCHAR},</if>
+			<if test="data.website != null">#{data.website,jdbcType=VARCHAR},</if>
+			<if test="data.address != null">#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.postcode != null">#{data.postcode,jdbcType=VARCHAR},</if>
+			<if test="data.industry_code != null">#{data.industryCode,jdbcType=VARCHAR},</if>
+			<if test="data.main_remark != null">#{data.mainRemark,jdbcType=VARCHAR},</if>
+			<if test="data.share_type != null">#{data.shareType,jdbcType=INTEGER},</if>
+			<if test="data.opend_time != null">#{data.opendTime,jdbcType=TIMESTAMP},</if>
+			<if test="data.register_asset != null">#{data.registerAsset,jdbcType=VARCHAR},</if>
+			<if test="data.qualfcation != null">#{data.qualfcation,jdbcType=VARCHAR},</if>
+			<if test="data.remark != null">#{data.remark,jdbcType=VARCHAR},</if>
+			<if test="data.personnel != null">#{data.personnel,jdbcType=VARCHAR},</if>
+			<if test="data.photo != null">#{data.photo,jdbcType=VARCHAR},</if>
+			<if test="data.org_grade != null">#{data.orgGrade,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.prison_id != null">#{data.prisonId,jdbcType=INTEGER},</if>
+			<if test="data.source != null">#{data.source,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.status != null">#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.user_id != null">#{data.userId,jdbcType=INTEGER},</if>
+			<if test="data.order_uri != null">#{data.orderUri,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_serviceagency
+		<set>
+			<if test="data.org_id != null">org_id=#{data.org_id,jdbcType=INTEGER},</if>
+			<if test="data.org_property != null">org_property=#{data.org_property,jdbcType=VARCHAR},</if>
+			<if test="data.org_code != null">org_code=#{data.org_code,jdbcType=VARCHAR},</if>
+			<if test="data.org_name != null">org_name=#{data.org_name,jdbcType=VARCHAR},</if>
+			<if test="data.person != null">person=#{data.person,jdbcType=VARCHAR},</if>
+			<if test="data.register_type != null">register_type=#{data.register_type,jdbcType=INTEGER},</if>
+			<if test="data.area_county != null">area_county=#{data.area_county,jdbcType=INTEGER},</if>
+			<if test="data.linkman != null">linkman=#{data.linkman,jdbcType=VARCHAR},</if>
+			<if test="data.tel != null">tel=#{data.tel,jdbcType=VARCHAR},</if>
+			<if test="data.fax != null">fax=#{data.fax,jdbcType=VARCHAR},</if>
+			<if test="data.mail != null">mail=#{data.mail,jdbcType=VARCHAR},</if>
+			<if test="data.website != null">website=#{data.website,jdbcType=VARCHAR},</if>
+			<if test="data.address != null">address=#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.postcode != null">postcode=#{data.postcode,jdbcType=VARCHAR},</if>
+			<if test="data.industry_code != null">industry_code=#{data.industry_code,jdbcType=VARCHAR},</if>
+			<if test="data.main_remark != null">main_remark=#{data.main_remark,jdbcType=VARCHAR},</if>
+			<if test="data.share_type != null">share_type=#{data.share_type,jdbcType=INTEGER},</if>
+			<if test="data.opend_time != null">opend_time=#{data.opend_time,jdbcType=TIMESTAMP},</if>
+			<if test="data.register_asset != null">register_asset=#{data.register_asset,jdbcType=VARCHAR},</if>
+			<if test="data.qualfcation != null">qualfcation=#{data.qualfcation,jdbcType=VARCHAR},</if>
+			<if test="data.remark != null">remark=#{data.remark,jdbcType=VARCHAR},</if>
+			<if test="data.personnel != null">personnel=#{data.personnel,jdbcType=VARCHAR},</if>
+			<if test="data.photo != null">photo=#{data.photo,jdbcType=VARCHAR},</if>
+			<if test="data.org_grade != null">org_grade=#{data.org_grade,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.prison_id != null">prison_id=#{data.prison_id,jdbcType=INTEGER},</if>
+			<if test="data.source != null">source=#{data.source,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.status != null">status=#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.user_id != null">user_id=#{data.user_id,jdbcType=INTEGER},</if>
+			<if test="data.order_uri != null">order_uri=#{data.order_uri,jdbcType=VARCHAR},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_serviceagency WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_serviceagency ( `org_id` , `org_property` , `org_code` , `org_name` , `person` , `register_type` , `area_county` , `linkman` , `tel` , `fax` , `mail` , `website` , `address` , `postcode` , `industry_code` , `main_remark` , `share_type` , `opend_time` , `register_asset` , `qualfcation` , `remark` , `personnel` , `photo` , `org_grade` , `isdelete` , `prison_id` , `source` , `addtime` , `status` , `user_id` , `order_uri` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.org_id,jdbcType=INTEGER} , #{item.org_property,jdbcType=VARCHAR} , #{item.org_code,jdbcType=VARCHAR} , #{item.org_name,jdbcType=VARCHAR} , #{item.person,jdbcType=VARCHAR} , #{item.register_type,jdbcType=INTEGER} , #{item.area_county,jdbcType=INTEGER} , #{item.linkman,jdbcType=VARCHAR} , #{item.tel,jdbcType=VARCHAR} , #{item.fax,jdbcType=VARCHAR} , #{item.mail,jdbcType=VARCHAR} , #{item.website,jdbcType=VARCHAR} , #{item.address,jdbcType=VARCHAR} , #{item.postcode,jdbcType=VARCHAR} , #{item.industry_code,jdbcType=VARCHAR} , #{item.main_remark,jdbcType=VARCHAR} , #{item.share_type,jdbcType=INTEGER} , #{item.opend_time,jdbcType=TIMESTAMP} , #{item.register_asset,jdbcType=VARCHAR} , #{item.qualfcation,jdbcType=VARCHAR} , #{item.remark,jdbcType=VARCHAR} , #{item.personnel,jdbcType=VARCHAR} , #{item.photo,jdbcType=VARCHAR} , #{item.org_grade,jdbcType=VARCHAR} , #{item.isdelete,jdbcType=INTEGER} , #{item.prison_id,jdbcType=INTEGER} , #{item.source,jdbcType=INTEGER} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.status,jdbcType=INTEGER} , #{item.user_id,jdbcType=INTEGER} , #{item.order_uri,jdbcType=VARCHAR} )</foreach>
+	</insert>
+</mapper>

@@ -9,5 +9,7 @@ public class ClientApiFinal {
 
     //众智联邦
     public static final String zzlb = "http://47.96.26.250:84/";
-    public static final String goodsType = "rest/service/product/goodsType/list";
+    public static final String goodsType = "rest/service/product/goodsType/list"; //获取商品类型
+    public static final String findGoods = "rest/service/product/findGoods"; //根据商品类型获取商品
+    public static final String getProducts ="rest/service/product/getProducts"; //获取产品规格
 }

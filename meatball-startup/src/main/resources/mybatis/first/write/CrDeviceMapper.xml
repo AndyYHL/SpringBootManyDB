@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.write.CrDeviceWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_device ( `device_id` , `collect_code` , `port` , `address` , `ip` , `addtime` , `isdelete` ) VALUES ( #{data.device_id,jdbcType=INTEGER} , #{data.collect_code,jdbcType=VARCHAR} , #{data.port,jdbcType=VARCHAR} , #{data.address,jdbcType=VARCHAR} , #{data.ip,jdbcType=VARCHAR} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.isdelete,jdbcType=INTEGER} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_device
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.device_id != null">`device_id`,</if>
+			<if test="data.collect_code != null">`collect_code`,</if>
+			<if test="data.port != null">`port`,</if>
+			<if test="data.address != null">`address`,</if>
+			<if test="data.ip != null">`ip`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.device_id != null">#{data.deviceId,jdbcType=INTEGER},</if>
+			<if test="data.collect_code != null">#{data.collectCode,jdbcType=VARCHAR},</if>
+			<if test="data.port != null">#{data.port,jdbcType=VARCHAR},</if>
+			<if test="data.address != null">#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.ip != null">#{data.ip,jdbcType=VARCHAR},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cr_device
+		<set>
+			<if test="data.device_id != null">device_id=#{data.device_id,jdbcType=INTEGER},</if>
+			<if test="data.collect_code != null">collect_code=#{data.collect_code,jdbcType=VARCHAR},</if>
+			<if test="data.port != null">port=#{data.port,jdbcType=VARCHAR},</if>
+			<if test="data.address != null">address=#{data.address,jdbcType=VARCHAR},</if>
+			<if test="data.ip != null">ip=#{data.ip,jdbcType=VARCHAR},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cr_device WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_device ( `device_id` , `collect_code` , `port` , `address` , `ip` , `addtime` , `isdelete` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.device_id,jdbcType=INTEGER} , #{item.collect_code,jdbcType=VARCHAR} , #{item.port,jdbcType=VARCHAR} , #{item.address,jdbcType=VARCHAR} , #{item.ip,jdbcType=VARCHAR} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.isdelete,jdbcType=INTEGER} )</foreach>
+	</insert>
+</mapper>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.second.write.CmOrderWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_order ( `out_trade_no` , `scene` , `auth_code` , `subject` , `buyer_id` , `seller_id` , `total_amount` , `discountable_amount` , `body` , `operator_id` , `store_id` , `terminal_id` , `timeout_express` , `orderpartyno` , `addtime` , `earnpoint` , `source` , `sourceval` , `paytime` , `paymoney` , `paymentmoney` , `status` , `statusval` , `user_id` , `user_name` , `balance` , `money` , `coupon_id` , `couponprice` , `integral` , `starttime` , `endtime` , `updatetime` , `other_id` , `iphone` , `isexpense` , `expensename` , `isdelete` , `paytype` , `paytypename` , `remark` , `urladress` ) VALUES ( #{data.out_trade_no,jdbcType=VARCHAR} , #{data.scene,jdbcType=VARCHAR} , #{data.auth_code,jdbcType=VARCHAR} , #{data.subject,jdbcType=VARCHAR} , #{data.buyer_id,jdbcType=VARCHAR} , #{data.seller_id,jdbcType=VARCHAR} , #{data.total_amount,jdbcType=DECIMAL} , #{data.discountable_amount,jdbcType=DECIMAL} , #{data.body,jdbcType=VARCHAR} , #{data.operator_id,jdbcType=VARCHAR} , #{data.store_id,jdbcType=VARCHAR} , #{data.terminal_id,jdbcType=VARCHAR} , #{data.timeout_express,jdbcType=VARCHAR} , #{data.orderpartyno,jdbcType=VARCHAR} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.earnpoint,jdbcType=DECIMAL} , #{data.source,jdbcType=INTEGER} , #{data.sourceval,jdbcType=VARCHAR} , #{data.paytime,jdbcType=TIMESTAMP} , #{data.paymoney,jdbcType=DECIMAL} , #{data.paymentmoney,jdbcType=DECIMAL} , #{data.status,jdbcType=INTEGER} , #{data.statusval,jdbcType=VARCHAR} , #{data.user_id,jdbcType=INTEGER} , #{data.user_name,jdbcType=VARCHAR} , #{data.balance,jdbcType=DECIMAL} , #{data.money,jdbcType=DECIMAL} , #{data.coupon_id,jdbcType=INTEGER} , #{data.couponprice,jdbcType=DECIMAL} , #{data.integral,jdbcType=DECIMAL} , #{data.starttime,jdbcType=TIMESTAMP} , #{data.endtime,jdbcType=TIMESTAMP} , #{data.updatetime,jdbcType=TIMESTAMP} , #{data.other_id,jdbcType=INTEGER} , #{data.iphone,jdbcType=VARCHAR} , #{data.isexpense,jdbcType=INTEGER} , #{data.expensename,jdbcType=VARCHAR} , #{data.isdelete,jdbcType=INTEGER} , #{data.paytype,jdbcType=INTEGER} , #{data.paytypename,jdbcType=VARCHAR} , #{data.remark,jdbcType=VARCHAR} , #{data.urladress,jdbcType=VARCHAR} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_order
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.out_trade_no != null">`out_trade_no`,</if>
+			<if test="data.scene != null">`scene`,</if>
+			<if test="data.auth_code != null">`auth_code`,</if>
+			<if test="data.subject != null">`subject`,</if>
+			<if test="data.buyer_id != null">`buyer_id`,</if>
+			<if test="data.seller_id != null">`seller_id`,</if>
+			<if test="data.total_amount != null">`total_amount`,</if>
+			<if test="data.discountable_amount != null">`discountable_amount`,</if>
+			<if test="data.body != null">`body`,</if>
+			<if test="data.operator_id != null">`operator_id`,</if>
+			<if test="data.store_id != null">`store_id`,</if>
+			<if test="data.terminal_id != null">`terminal_id`,</if>
+			<if test="data.timeout_express != null">`timeout_express`,</if>
+			<if test="data.orderpartyno != null">`orderpartyno`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.earnpoint != null">`earnpoint`,</if>
+			<if test="data.source != null">`source`,</if>
+			<if test="data.sourceval != null">`sourceval`,</if>
+			<if test="data.paytime != null">`paytime`,</if>
+			<if test="data.paymoney != null">`paymoney`,</if>
+			<if test="data.paymentmoney != null">`paymentmoney`,</if>
+			<if test="data.status != null">`status`,</if>
+			<if test="data.statusval != null">`statusval`,</if>
+			<if test="data.user_id != null">`user_id`,</if>
+			<if test="data.user_name != null">`user_name`,</if>
+			<if test="data.balance != null">`balance`,</if>
+			<if test="data.money != null">`money`,</if>
+			<if test="data.coupon_id != null">`coupon_id`,</if>
+			<if test="data.couponprice != null">`couponprice`,</if>
+			<if test="data.integral != null">`integral`,</if>
+			<if test="data.starttime != null">`starttime`,</if>
+			<if test="data.endtime != null">`endtime`,</if>
+			<if test="data.updatetime != null">`updatetime`,</if>
+			<if test="data.other_id != null">`other_id`,</if>
+			<if test="data.iphone != null">`iphone`,</if>
+			<if test="data.isexpense != null">`isexpense`,</if>
+			<if test="data.expensename != null">`expensename`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+			<if test="data.paytype != null">`paytype`,</if>
+			<if test="data.paytypename != null">`paytypename`,</if>
+			<if test="data.remark != null">`remark`,</if>
+			<if test="data.urladress != null">`urladress`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.out_trade_no != null">#{data.outTradeNo,jdbcType=VARCHAR},</if>
+			<if test="data.scene != null">#{data.scene,jdbcType=VARCHAR},</if>
+			<if test="data.auth_code != null">#{data.authCode,jdbcType=VARCHAR},</if>
+			<if test="data.subject != null">#{data.subject,jdbcType=VARCHAR},</if>
+			<if test="data.buyer_id != null">#{data.buyerId,jdbcType=VARCHAR},</if>
+			<if test="data.seller_id != null">#{data.sellerId,jdbcType=VARCHAR},</if>
+			<if test="data.total_amount != null">#{data.totalAmount,jdbcType=DECIMAL},</if>
+			<if test="data.discountable_amount != null">#{data.discountableAmount,jdbcType=DECIMAL},</if>
+			<if test="data.body != null">#{data.body,jdbcType=VARCHAR},</if>
+			<if test="data.operator_id != null">#{data.operatorId,jdbcType=VARCHAR},</if>
+			<if test="data.store_id != null">#{data.storeId,jdbcType=VARCHAR},</if>
+			<if test="data.terminal_id != null">#{data.terminalId,jdbcType=VARCHAR},</if>
+			<if test="data.timeout_express != null">#{data.timeoutExpress,jdbcType=VARCHAR},</if>
+			<if test="data.orderpartyno != null">#{data.orderpartyno,jdbcType=VARCHAR},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.earnpoint != null">#{data.earnpoint,jdbcType=DECIMAL},</if>
+			<if test="data.source != null">#{data.source,jdbcType=INTEGER},</if>
+			<if test="data.sourceval != null">#{data.sourceval,jdbcType=VARCHAR},</if>
+			<if test="data.paytime != null">#{data.paytime,jdbcType=TIMESTAMP},</if>
+			<if test="data.paymoney != null">#{data.paymoney,jdbcType=DECIMAL},</if>
+			<if test="data.paymentmoney != null">#{data.paymentmoney,jdbcType=DECIMAL},</if>
+			<if test="data.status != null">#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.statusval != null">#{data.statusval,jdbcType=VARCHAR},</if>
+			<if test="data.user_id != null">#{data.userId,jdbcType=INTEGER},</if>
+			<if test="data.user_name != null">#{data.userName,jdbcType=VARCHAR},</if>
+			<if test="data.balance != null">#{data.balance,jdbcType=DECIMAL},</if>
+			<if test="data.money != null">#{data.money,jdbcType=DECIMAL},</if>
+			<if test="data.coupon_id != null">#{data.couponId,jdbcType=INTEGER},</if>
+			<if test="data.couponprice != null">#{data.couponprice,jdbcType=DECIMAL},</if>
+			<if test="data.integral != null">#{data.integral,jdbcType=DECIMAL},</if>
+			<if test="data.starttime != null">#{data.starttime,jdbcType=TIMESTAMP},</if>
+			<if test="data.endtime != null">#{data.endtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.updatetime != null">#{data.updatetime,jdbcType=TIMESTAMP},</if>
+			<if test="data.other_id != null">#{data.otherId,jdbcType=INTEGER},</if>
+			<if test="data.iphone != null">#{data.iphone,jdbcType=VARCHAR},</if>
+			<if test="data.isexpense != null">#{data.isexpense,jdbcType=INTEGER},</if>
+			<if test="data.expensename != null">#{data.expensename,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.paytype != null">#{data.paytype,jdbcType=INTEGER},</if>
+			<if test="data.paytypename != null">#{data.paytypename,jdbcType=VARCHAR},</if>
+			<if test="data.remark != null">#{data.remark,jdbcType=VARCHAR},</if>
+			<if test="data.urladress != null">#{data.urladress,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_order
+		<set>
+			<if test="data.out_trade_no != null">out_trade_no=#{data.out_trade_no,jdbcType=VARCHAR},</if>
+			<if test="data.scene != null">scene=#{data.scene,jdbcType=VARCHAR},</if>
+			<if test="data.auth_code != null">auth_code=#{data.auth_code,jdbcType=VARCHAR},</if>
+			<if test="data.subject != null">subject=#{data.subject,jdbcType=VARCHAR},</if>
+			<if test="data.buyer_id != null">buyer_id=#{data.buyer_id,jdbcType=VARCHAR},</if>
+			<if test="data.seller_id != null">seller_id=#{data.seller_id,jdbcType=VARCHAR},</if>
+			<if test="data.total_amount != null">total_amount=#{data.total_amount,jdbcType=DECIMAL},</if>
+			<if test="data.discountable_amount != null">discountable_amount=#{data.discountable_amount,jdbcType=DECIMAL},</if>
+			<if test="data.body != null">body=#{data.body,jdbcType=VARCHAR},</if>
+			<if test="data.operator_id != null">operator_id=#{data.operator_id,jdbcType=VARCHAR},</if>
+			<if test="data.store_id != null">store_id=#{data.store_id,jdbcType=VARCHAR},</if>
+			<if test="data.terminal_id != null">terminal_id=#{data.terminal_id,jdbcType=VARCHAR},</if>
+			<if test="data.timeout_express != null">timeout_express=#{data.timeout_express,jdbcType=VARCHAR},</if>
+			<if test="data.orderpartyno != null">orderpartyno=#{data.orderpartyno,jdbcType=VARCHAR},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.earnpoint != null">earnpoint=#{data.earnpoint,jdbcType=DECIMAL},</if>
+			<if test="data.source != null">source=#{data.source,jdbcType=INTEGER},</if>
+			<if test="data.sourceval != null">sourceval=#{data.sourceval,jdbcType=VARCHAR},</if>
+			<if test="data.paytime != null">paytime=#{data.paytime,jdbcType=TIMESTAMP},</if>
+			<if test="data.paymoney != null">paymoney=#{data.paymoney,jdbcType=DECIMAL},</if>
+			<if test="data.paymentmoney != null">paymentmoney=#{data.paymentmoney,jdbcType=DECIMAL},</if>
+			<if test="data.status != null">status=#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.statusval != null">statusval=#{data.statusval,jdbcType=VARCHAR},</if>
+			<if test="data.user_id != null">user_id=#{data.user_id,jdbcType=INTEGER},</if>
+			<if test="data.user_name != null">user_name=#{data.user_name,jdbcType=VARCHAR},</if>
+			<if test="data.balance != null">balance=#{data.balance,jdbcType=DECIMAL},</if>
+			<if test="data.money != null">money=#{data.money,jdbcType=DECIMAL},</if>
+			<if test="data.coupon_id != null">coupon_id=#{data.coupon_id,jdbcType=INTEGER},</if>
+			<if test="data.couponprice != null">couponprice=#{data.couponprice,jdbcType=DECIMAL},</if>
+			<if test="data.integral != null">integral=#{data.integral,jdbcType=DECIMAL},</if>
+			<if test="data.starttime != null">starttime=#{data.starttime,jdbcType=TIMESTAMP},</if>
+			<if test="data.endtime != null">endtime=#{data.endtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.updatetime != null">updatetime=#{data.updatetime,jdbcType=TIMESTAMP},</if>
+			<if test="data.other_id != null">other_id=#{data.other_id,jdbcType=INTEGER},</if>
+			<if test="data.iphone != null">iphone=#{data.iphone,jdbcType=VARCHAR},</if>
+			<if test="data.isexpense != null">isexpense=#{data.isexpense,jdbcType=INTEGER},</if>
+			<if test="data.expensename != null">expensename=#{data.expensename,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.paytype != null">paytype=#{data.paytype,jdbcType=INTEGER},</if>
+			<if test="data.paytypename != null">paytypename=#{data.paytypename,jdbcType=VARCHAR},</if>
+			<if test="data.remark != null">remark=#{data.remark,jdbcType=VARCHAR},</if>
+			<if test="data.urladress != null">urladress=#{data.urladress,jdbcType=VARCHAR},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_order WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_order ( `out_trade_no` , `scene` , `auth_code` , `subject` , `buyer_id` , `seller_id` , `total_amount` , `discountable_amount` , `body` , `operator_id` , `store_id` , `terminal_id` , `timeout_express` , `orderpartyno` , `addtime` , `earnpoint` , `source` , `sourceval` , `paytime` , `paymoney` , `paymentmoney` , `status` , `statusval` , `user_id` , `user_name` , `balance` , `money` , `coupon_id` , `couponprice` , `integral` , `starttime` , `endtime` , `updatetime` , `other_id` , `iphone` , `isexpense` , `expensename` , `isdelete` , `paytype` , `paytypename` , `remark` , `urladress` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.out_trade_no,jdbcType=VARCHAR} , #{item.scene,jdbcType=VARCHAR} , #{item.auth_code,jdbcType=VARCHAR} , #{item.subject,jdbcType=VARCHAR} , #{item.buyer_id,jdbcType=VARCHAR} , #{item.seller_id,jdbcType=VARCHAR} , #{item.total_amount,jdbcType=DECIMAL} , #{item.discountable_amount,jdbcType=DECIMAL} , #{item.body,jdbcType=VARCHAR} , #{item.operator_id,jdbcType=VARCHAR} , #{item.store_id,jdbcType=VARCHAR} , #{item.terminal_id,jdbcType=VARCHAR} , #{item.timeout_express,jdbcType=VARCHAR} , #{item.orderpartyno,jdbcType=VARCHAR} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.earnpoint,jdbcType=DECIMAL} , #{item.source,jdbcType=INTEGER} , #{item.sourceval,jdbcType=VARCHAR} , #{item.paytime,jdbcType=TIMESTAMP} , #{item.paymoney,jdbcType=DECIMAL} , #{item.paymentmoney,jdbcType=DECIMAL} , #{item.status,jdbcType=INTEGER} , #{item.statusval,jdbcType=VARCHAR} , #{item.user_id,jdbcType=INTEGER} , #{item.user_name,jdbcType=VARCHAR} , #{item.balance,jdbcType=DECIMAL} , #{item.money,jdbcType=DECIMAL} , #{item.coupon_id,jdbcType=INTEGER} , #{item.couponprice,jdbcType=DECIMAL} , #{item.integral,jdbcType=DECIMAL} , #{item.starttime,jdbcType=TIMESTAMP} , #{item.endtime,jdbcType=TIMESTAMP} , #{item.updatetime,jdbcType=TIMESTAMP} , #{item.other_id,jdbcType=INTEGER} , #{item.iphone,jdbcType=VARCHAR} , #{item.isexpense,jdbcType=INTEGER} , #{item.expensename,jdbcType=VARCHAR} , #{item.isdelete,jdbcType=INTEGER} , #{item.paytype,jdbcType=INTEGER} , #{item.paytypename,jdbcType=VARCHAR} , #{item.remark,jdbcType=VARCHAR} , #{item.urladress,jdbcType=VARCHAR} )</foreach>
+	</insert>
+</mapper>

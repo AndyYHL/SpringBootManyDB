@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.second.write.CrAttributesWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_attributes ( `shop_id` , `attribute_id` , `attributename` , `value_id` , `value` , `iscustom` , `isshow` , `sys_type_id` , `addtime` ) VALUES ( #{data.shop_id,jdbcType=INTEGER} , #{data.attribute_id,jdbcType=VARCHAR} , #{data.attributename,jdbcType=VARCHAR} , #{data.value_id,jdbcType=VARCHAR} , #{data.value,jdbcType=VARCHAR} , #{data.iscustom,jdbcType=BOOLEAN} , #{data.isshow,jdbcType=INTEGER} , #{data.sys_type_id,jdbcType=INTEGER} , #{data.addtime,jdbcType=TIMESTAMP} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_attributes
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.shop_id != null">`shop_id`,</if>
+			<if test="data.attribute_id != null">`attribute_id`,</if>
+			<if test="data.attributename != null">`attributename`,</if>
+			<if test="data.value_id != null">`value_id`,</if>
+			<if test="data.value != null">`value`,</if>
+			<if test="data.iscustom != null">`iscustom`,</if>
+			<if test="data.isshow != null">`isshow`,</if>
+			<if test="data.sys_type_id != null">`sys_type_id`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.shop_id != null">#{data.shopId,jdbcType=INTEGER},</if>
+			<if test="data.attribute_id != null">#{data.attributeId,jdbcType=VARCHAR},</if>
+			<if test="data.attributename != null">#{data.attributename,jdbcType=VARCHAR},</if>
+			<if test="data.value_id != null">#{data.valueId,jdbcType=VARCHAR},</if>
+			<if test="data.value != null">#{data.value,jdbcType=VARCHAR},</if>
+			<if test="data.iscustom != null">#{data.iscustom,jdbcType=BOOLEAN},</if>
+			<if test="data.isshow != null">#{data.isshow,jdbcType=INTEGER},</if>
+			<if test="data.sys_type_id != null">#{data.sysTypeId,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cr_attributes
+		<set>
+			<if test="data.shop_id != null">shop_id=#{data.shop_id,jdbcType=INTEGER},</if>
+			<if test="data.attribute_id != null">attribute_id=#{data.attribute_id,jdbcType=VARCHAR},</if>
+			<if test="data.attributename != null">attributename=#{data.attributename,jdbcType=VARCHAR},</if>
+			<if test="data.value_id != null">value_id=#{data.value_id,jdbcType=VARCHAR},</if>
+			<if test="data.value != null">value=#{data.value,jdbcType=VARCHAR},</if>
+			<if test="data.iscustom != null">iscustom=#{data.iscustom,jdbcType=BOOLEAN},</if>
+			<if test="data.isshow != null">isshow=#{data.isshow,jdbcType=INTEGER},</if>
+			<if test="data.sys_type_id != null">sys_type_id=#{data.sys_type_id,jdbcType=INTEGER},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cr_attributes WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cr_attributes ( `shop_id` , `attribute_id` , `attributename` , `value_id` , `value` , `iscustom` , `isshow` , `sys_type_id` , `addtime` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.shop_id,jdbcType=INTEGER} , #{item.attribute_id,jdbcType=VARCHAR} , #{item.attributename,jdbcType=VARCHAR} , #{item.value_id,jdbcType=VARCHAR} , #{item.value,jdbcType=VARCHAR} , #{item.iscustom,jdbcType=BOOLEAN} , #{item.isshow,jdbcType=INTEGER} , #{item.sys_type_id,jdbcType=INTEGER} , #{item.addtime,jdbcType=TIMESTAMP} )</foreach>
+	</insert>
+</mapper>

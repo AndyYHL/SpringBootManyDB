@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.read.CmDeviceReadDao">
+	<select id="find" parameterType="map" resultType="map">SELECT `id` , `enterprise_id` , `device_code` , `name` , `address` , `lot` , `lat` , `port` , `product_name` , `product_code` , `product_model` , `product_type` , `product_pic` , `sys` , `s_sys` , `maxstroke` , `worksize` , `power` , `variator` , `motor` , `spec` , `accuracy` , `srange` , `speed` , `cooling` , `splitter` , `now_province_id` , `now_ctity_id` , `now_county_id` , `addtime` , `origin` , `countries` , `isdelate` , `partner_id` , `isshare` FROM cm_device WHERE 1=1 AND id = #{data.id,jdbcType=INTEGER}</select>
+	<select id="findEntity" parameterType="map" resultType="map">SELECT `id` , `enterprise_id` , `device_code` , `name` , `address` , `lot` , `lat` , `port` , `product_name` , `product_code` , `product_model` , `product_type` , `product_pic` , `sys` , `s_sys` , `maxstroke` , `worksize` , `power` , `variator` , `motor` , `spec` , `accuracy` , `srange` , `speed` , `cooling` , `splitter` , `now_province_id` , `now_ctity_id` , `now_county_id` , `addtime` , `origin` , `countries` , `isdelate` , `partner_id` , `isshare` FROM cm_device WHERE 1=1 AND id = #{data.id,jdbcType=INTEGER}</select>
+	<select id="findLimit" resultType="map" parameterType="map">SELECT `id` , `enterprise_id` , `device_code` , `name` , `address` , `lot` , `lat` , `port` , `product_name` , `product_code` , `product_model` , `product_type` , `product_pic` , `sys` , `s_sys` , `maxstroke` , `worksize` , `power` , `variator` , `motor` , `spec` , `accuracy` , `srange` , `speed` , `cooling` , `splitter` , `now_province_id` , `now_ctity_id` , `now_county_id` , `addtime` , `origin` , `countries` , `isdelate` , `partner_id` , `isshare` FROM cm_device WHERE 1 = 1 ORDER BY
+		<choose>
+			<when test="extlimit.sort != null">${extlimit.sort} ${extlimit.dir}</when>
+			<otherwise>id DESC</otherwise>
+		</choose> LIMIT ${(extlimit.pageindex-1)*extlimit.pagesize},${extlimit.pagesize}
+	</select>
+	<select id="findCount" resultType="int" parameterType="map">SELECT COUNT(1) AS totalCount FROM cm_device WHERE 1 = 1</select>
+</mapper>

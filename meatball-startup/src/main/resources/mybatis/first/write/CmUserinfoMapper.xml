@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.first.write.CmUserinfoWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_userinfo ( `id` , `name` , `pwd` , `mobile` , `realname` , `addtime` , `loginip` , `status` , `statusval` , `isdelete` , `uuid` , `role_id` , `role_name` , `prison_id` , `u_picture` , `enterprise_id` , `nickname` , `remark` , `source` , `sourceval` , `sys_type_id` , `sys_type_name` ) VALUES ( #{data.id,jdbcType=INTEGER} , #{data.name,jdbcType=VARCHAR} , #{data.pwd,jdbcType=VARCHAR} , #{data.mobile,jdbcType=VARCHAR} , #{data.realname,jdbcType=VARCHAR} , #{data.addtime,jdbcType=TIMESTAMP} , #{data.loginip,jdbcType=VARCHAR} , #{data.status,jdbcType=INTEGER} , #{data.statusval,jdbcType=VARCHAR} , #{data.isdelete,jdbcType=INTEGER} , #{data.uuid,jdbcType=VARCHAR} , #{data.role_id,jdbcType=INTEGER} , #{data.role_name,jdbcType=VARCHAR} , #{data.prison_id,jdbcType=INTEGER} , #{data.u_picture,jdbcType=VARCHAR} , #{data.enterprise_id,jdbcType=INTEGER} , #{data.nickname,jdbcType=VARCHAR} , #{data.remark,jdbcType=VARCHAR} , #{data.source,jdbcType=INTEGER} , #{data.sourceval,jdbcType=VARCHAR} , #{data.sys_type_id,jdbcType=INTEGER} , #{data.sys_type_name,jdbcType=VARCHAR} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_userinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.id != null">`id`,</if>
+			<if test="data.name != null">`name`,</if>
+			<if test="data.pwd != null">`pwd`,</if>
+			<if test="data.mobile != null">`mobile`,</if>
+			<if test="data.realname != null">`realname`,</if>
+			<if test="data.addtime != null">`addtime`,</if>
+			<if test="data.loginip != null">`loginip`,</if>
+			<if test="data.status != null">`status`,</if>
+			<if test="data.statusval != null">`statusval`,</if>
+			<if test="data.isdelete != null">`isdelete`,</if>
+			<if test="data.uuid != null">`uuid`,</if>
+			<if test="data.role_id != null">`role_id`,</if>
+			<if test="data.role_name != null">`role_name`,</if>
+			<if test="data.prison_id != null">`prison_id`,</if>
+			<if test="data.u_picture != null">`u_picture`,</if>
+			<if test="data.enterprise_id != null">`enterprise_id`,</if>
+			<if test="data.nickname != null">`nickname`,</if>
+			<if test="data.remark != null">`remark`,</if>
+			<if test="data.source != null">`source`,</if>
+			<if test="data.sourceval != null">`sourceval`,</if>
+			<if test="data.sys_type_id != null">`sys_type_id`,</if>
+			<if test="data.sys_type_name != null">`sys_type_name`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.id != null">#{data.id,jdbcType=INTEGER},</if>
+			<if test="data.name != null">#{data.name,jdbcType=VARCHAR},</if>
+			<if test="data.pwd != null">#{data.pwd,jdbcType=VARCHAR},</if>
+			<if test="data.mobile != null">#{data.mobile,jdbcType=VARCHAR},</if>
+			<if test="data.realname != null">#{data.realname,jdbcType=VARCHAR},</if>
+			<if test="data.addtime != null">#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.loginip != null">#{data.loginip,jdbcType=VARCHAR},</if>
+			<if test="data.status != null">#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.statusval != null">#{data.statusval,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.uuid != null">#{data.uuid,jdbcType=VARCHAR},</if>
+			<if test="data.role_id != null">#{data.roleId,jdbcType=INTEGER},</if>
+			<if test="data.role_name != null">#{data.roleName,jdbcType=VARCHAR},</if>
+			<if test="data.prison_id != null">#{data.prisonId,jdbcType=INTEGER},</if>
+			<if test="data.u_picture != null">#{data.uPicture,jdbcType=VARCHAR},</if>
+			<if test="data.enterprise_id != null">#{data.enterpriseId,jdbcType=INTEGER},</if>
+			<if test="data.nickname != null">#{data.nickname,jdbcType=VARCHAR},</if>
+			<if test="data.remark != null">#{data.remark,jdbcType=VARCHAR},</if>
+			<if test="data.source != null">#{data.source,jdbcType=INTEGER},</if>
+			<if test="data.sourceval != null">#{data.sourceval,jdbcType=VARCHAR},</if>
+			<if test="data.sys_type_id != null">#{data.sysTypeId,jdbcType=INTEGER},</if>
+			<if test="data.sys_type_name != null">#{data.sysTypeName,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_userinfo
+		<set>
+			<if test="data.name != null">name=#{data.name,jdbcType=VARCHAR},</if>
+			<if test="data.pwd != null">pwd=#{data.pwd,jdbcType=VARCHAR},</if>
+			<if test="data.mobile != null">mobile=#{data.mobile,jdbcType=VARCHAR},</if>
+			<if test="data.realname != null">realname=#{data.realname,jdbcType=VARCHAR},</if>
+			<if test="data.addtime != null">addtime=#{data.addtime,jdbcType=TIMESTAMP},</if>
+			<if test="data.loginip != null">loginip=#{data.loginip,jdbcType=VARCHAR},</if>
+			<if test="data.status != null">status=#{data.status,jdbcType=INTEGER},</if>
+			<if test="data.statusval != null">statusval=#{data.statusval,jdbcType=VARCHAR},</if>
+			<if test="data.isdelete != null">isdelete=#{data.isdelete,jdbcType=INTEGER},</if>
+			<if test="data.uuid != null">uuid=#{data.uuid,jdbcType=VARCHAR},</if>
+			<if test="data.role_id != null">role_id=#{data.role_id,jdbcType=INTEGER},</if>
+			<if test="data.role_name != null">role_name=#{data.role_name,jdbcType=VARCHAR},</if>
+			<if test="data.prison_id != null">prison_id=#{data.prison_id,jdbcType=INTEGER},</if>
+			<if test="data.u_picture != null">u_picture=#{data.u_picture,jdbcType=VARCHAR},</if>
+			<if test="data.enterprise_id != null">enterprise_id=#{data.enterprise_id,jdbcType=INTEGER},</if>
+			<if test="data.nickname != null">nickname=#{data.nickname,jdbcType=VARCHAR},</if>
+			<if test="data.remark != null">remark=#{data.remark,jdbcType=VARCHAR},</if>
+			<if test="data.source != null">source=#{data.source,jdbcType=INTEGER},</if>
+			<if test="data.sourceval != null">sourceval=#{data.sourceval,jdbcType=VARCHAR},</if>
+			<if test="data.sys_type_id != null">sys_type_id=#{data.sys_type_id,jdbcType=INTEGER},</if>
+			<if test="data.sys_type_name != null">sys_type_name=#{data.sys_type_name,jdbcType=VARCHAR},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_userinfo WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_userinfo ( `id` , `name` , `pwd` , `mobile` , `realname` , `addtime` , `loginip` , `status` , `statusval` , `isdelete` , `uuid` , `role_id` , `role_name` , `prison_id` , `u_picture` , `enterprise_id` , `nickname` , `remark` , `source` , `sourceval` , `sys_type_id` , `sys_type_name` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.id,jdbcType=INTEGER} , #{item.name,jdbcType=VARCHAR} , #{item.pwd,jdbcType=VARCHAR} , #{item.mobile,jdbcType=VARCHAR} , #{item.realname,jdbcType=VARCHAR} , #{item.addtime,jdbcType=TIMESTAMP} , #{item.loginip,jdbcType=VARCHAR} , #{item.status,jdbcType=INTEGER} , #{item.statusval,jdbcType=VARCHAR} , #{item.isdelete,jdbcType=INTEGER} , #{item.uuid,jdbcType=VARCHAR} , #{item.role_id,jdbcType=INTEGER} , #{item.role_name,jdbcType=VARCHAR} , #{item.prison_id,jdbcType=INTEGER} , #{item.u_picture,jdbcType=VARCHAR} , #{item.enterprise_id,jdbcType=INTEGER} , #{item.nickname,jdbcType=VARCHAR} , #{item.remark,jdbcType=VARCHAR} , #{item.source,jdbcType=INTEGER} , #{item.sourceval,jdbcType=VARCHAR} , #{item.sys_type_id,jdbcType=INTEGER} , #{item.sys_type_name,jdbcType=VARCHAR} )</foreach>
+	</insert>
+</mapper>

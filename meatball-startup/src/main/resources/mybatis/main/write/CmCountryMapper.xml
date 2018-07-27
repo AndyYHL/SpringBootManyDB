@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qxst.e.meatballstartup.dao.main.write.CmCountryWriteDao">
+	<insert id="save" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_country ( `two_code` , `thr_code` , `n_code` , `iso_code` , `country` , `ch_name` , `tw_name` , `xg_name` , `remark` ) VALUES ( #{data.two_code,jdbcType=VARCHAR} , #{data.thr_code,jdbcType=VARCHAR} , #{data.n_code,jdbcType=VARCHAR} , #{data.iso_code,jdbcType=VARCHAR} , #{data.country,jdbcType=VARCHAR} , #{data.ch_name,jdbcType=VARCHAR} , #{data.tw_name,jdbcType=VARCHAR} , #{data.xg_name,jdbcType=VARCHAR} , #{data.remark,jdbcType=VARCHAR} )</insert>
+	<insert id="saveNotNull" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_country
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="data.two_code != null">`two_code`,</if>
+			<if test="data.thr_code != null">`thr_code`,</if>
+			<if test="data.n_code != null">`n_code`,</if>
+			<if test="data.iso_code != null">`iso_code`,</if>
+			<if test="data.country != null">`country`,</if>
+			<if test="data.ch_name != null">`ch_name`,</if>
+			<if test="data.tw_name != null">`tw_name`,</if>
+			<if test="data.xg_name != null">`xg_name`,</if>
+			<if test="data.remark != null">`remark`,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="data.two_code != null">#{data.twoCode,jdbcType=VARCHAR},</if>
+			<if test="data.thr_code != null">#{data.thrCode,jdbcType=VARCHAR},</if>
+			<if test="data.n_code != null">#{data.nCode,jdbcType=VARCHAR},</if>
+			<if test="data.iso_code != null">#{data.isoCode,jdbcType=VARCHAR},</if>
+			<if test="data.country != null">#{data.country,jdbcType=VARCHAR},</if>
+			<if test="data.ch_name != null">#{data.chName,jdbcType=VARCHAR},</if>
+			<if test="data.tw_name != null">#{data.twName,jdbcType=VARCHAR},</if>
+			<if test="data.xg_name != null">#{data.xgName,jdbcType=VARCHAR},</if>
+			<if test="data.remark != null">#{data.remark,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+	<update id="upt" parameterType="map">UPDATE cm_country
+		<set>
+			<if test="data.two_code != null">two_code=#{data.two_code,jdbcType=VARCHAR},</if>
+			<if test="data.thr_code != null">thr_code=#{data.thr_code,jdbcType=VARCHAR},</if>
+			<if test="data.n_code != null">n_code=#{data.n_code,jdbcType=VARCHAR},</if>
+			<if test="data.iso_code != null">iso_code=#{data.iso_code,jdbcType=VARCHAR},</if>
+			<if test="data.country != null">country=#{data.country,jdbcType=VARCHAR},</if>
+			<if test="data.ch_name != null">ch_name=#{data.ch_name,jdbcType=VARCHAR},</if>
+			<if test="data.tw_name != null">tw_name=#{data.tw_name,jdbcType=VARCHAR},</if>
+			<if test="data.xg_name != null">xg_name=#{data.xg_name,jdbcType=VARCHAR},</if>
+			<if test="data.remark != null">remark=#{data.remark,jdbcType=VARCHAR},</if>
+		</set> WHERE id = #{data.id,jdbcType=INTEGER}
+	</update>
+	<delete id="del" parameterType="map">DELETE FROM cm_country WHERE id = #{data.id,jdbcType=INTEGER}</delete>
+	<insert id="insertTranscationList" parameterType="map" keyProperty="id" keyColumn="id" useGeneratedKeys="true">INSERT INTO cm_country ( `two_code` , `thr_code` , `n_code` , `iso_code` , `country` , `ch_name` , `tw_name` , `xg_name` , `remark` ) VALUES
+		<foreach collection="data.list" item="item" index="index" separator=",">( #{item.two_code,jdbcType=VARCHAR} , #{item.thr_code,jdbcType=VARCHAR} , #{item.n_code,jdbcType=VARCHAR} , #{item.iso_code,jdbcType=VARCHAR} , #{item.country,jdbcType=VARCHAR} , #{item.ch_name,jdbcType=VARCHAR} , #{item.tw_name,jdbcType=VARCHAR} , #{item.xg_name,jdbcType=VARCHAR} , #{item.remark,jdbcType=VARCHAR} )</foreach>
+	</insert>
+</mapper>
